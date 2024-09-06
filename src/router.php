@@ -126,3 +126,28 @@
 //         $homeController->page404();
 //         break;
 // }
+
+
+use src\Controllers\HomeController;
+
+$homeController = new HomeController();
+
+$route = $_SERVER['REDIRECT_URL'] ?? '/';
+$method = $_SERVER['REQUEST_METHOD'];
+
+
+switch ($route) {
+        case HOME_URL:
+            // if ($method === 'POST') {
+            //     $personnelsController->treatmentSignIn();
+            // } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+            //     // $homeController->displayDashboard();
+            // } else {
+                $homeController->index();
+            // }
+            break;
+
+            default:
+                    $homeController->page404();
+                    break;
+}

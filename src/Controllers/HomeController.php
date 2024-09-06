@@ -90,8 +90,14 @@ class HomeController {
 
     public function index() {
 
-        include_once __DIR__ . '../Views/Home/homepage.php';
+        include_once __DIR__ . '/../Views/Home/homepage.php';
     }
 
+
+
+    public function page404() {
+
+        include_once __DIR__ . '/../Views/Home/page404.php';
+    }
 
 }
