@@ -80,3 +80,18 @@
 //         include_once __DIR__ . '/../Views/home/404.php';
 //     }
 // }
+
+
+
+namespace src\Controllers;
+
+
+class HomeController {
+
+    public function index() {
+
+        include_once __DIR__ . '../Views/Home/homepage.php';
+    }
+
+
+}
