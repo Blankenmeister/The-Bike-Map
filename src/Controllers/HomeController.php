@@ -114,6 +114,10 @@ class HomeController {
     }
 
 
+    public function signIn() {
+        include_once __DIR__ . '/../Views/SignIn/signIn.php';
+    }
+
 
     public function displayDashboard() {
 

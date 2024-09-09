@@ -153,13 +153,16 @@ switch ($route) {
                     $homeController->displayPage404();
                     break;
 
-            case HOME_URL . 'connexion':
+
+                    
+
+            case HOME_URL . 'signIn':
             if ($method === 'POST') {
                 $userController->treatmentSignIn();
             } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
                 $homeController->displayDashboard();
             } else {
-                $homeController->index();
+                $homeController->signIn();
             }
             break;
 
