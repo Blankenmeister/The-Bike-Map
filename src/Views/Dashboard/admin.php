@@ -1,5 +1,5 @@
 <?php
 
 
-echo 'admin';
+echo 'je suis dans le dashborad admin';
 

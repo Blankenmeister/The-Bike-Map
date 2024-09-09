@@ -114,11 +114,6 @@
 
 
 
-
-
-
-
-
 //     case HOME_URL . 'deconnexion':
 //         $homeController->deconexion();
 //         break;
@@ -137,17 +132,35 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 
 switch ($route) {
-        case HOME_URL:
-            // if ($method === 'POST') {
-            //     $personnelsController->treatmentSignIn();
-            // } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
-            //     // $homeController->displayDashboard();
-            // } else {
+
+            case HOME_URL:
                 $homeController->index();
-            // }
-            break;
+                break;
+
+            case HOME_URL . 'mapList':
+                $homeController->displayMapList();
+                break;
+
+            case HOME_URL . 'mapDetail':
+                $homeController->displayMapDetail();
+                break;
+
+            case HOME_URL . 'contact':
+                $homeController->displayContact();
+                break;
 
             default:
-                    $homeController->page404();
+                    $homeController->displayPage404();
                     break;
+
+            case HOME_URL . 'connexion':
+            if ($method === 'POST') {
+                $userController->treatmentSignIn();
+            } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+                $homeController->displayDashboard();
+            } else {
+                $homeController->index();
+            }
+            break;
+
 }

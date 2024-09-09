@@ -95,9 +95,30 @@ class HomeController {
 
 
 
-    public function page404() {
+    public function displayPage404() {
 
         include_once __DIR__ . '/../Views/Home/page404.php';
     }
+
+    public function displayMaplist()
+    {
+        include_once __DIR__ . '/../Views/mapList.php';
+    }
+
+    public function displayMapDetail() {
+        include_once __DIR__ . '/../Views/mapDetail.php';
+    }
+
+    public function displayContact() {
+        include_once __DIR__ . '/../Views/contact.php';
+    }
+
+
+
+    public function displayDashboard() {
+
+        include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
+    }
+
 
 }

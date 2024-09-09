@@ -8,13 +8,20 @@
 
     <div class="role-content">
         <?php
-        if ($_SESSION['role'] === 'admin'):
+        if ($_SESSION['role'] === 'admin')
+        {
             include_once __DIR__ . '/admin.php';
-        // elseif ($_SESSION['role'] === 'conducteur' || $_SESSION['role'] === 'mecanicien'):
-        //     include_once __DIR__ . '/../vehicule/vehicules.php';
-        else:
+
+        }elseif ($_SESSION['role'] === 'user')
+
+        {
+            include_once __DIR__ . '/../user.php';
+
+        }else{
+
             echo '<div class="alert alert-warning">Erreur - veuillez vous déconnecter</div>';
-        endif;
+            
+        };
         ?>
     </div>
 </div>
