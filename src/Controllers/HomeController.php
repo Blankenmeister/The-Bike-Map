@@ -90,27 +90,24 @@ class HomeController {
 
     public function index() {
 
-        include_once __DIR__ . '/../Views/Home/homepage.php';
+        include_once __DIR__ . '/../Views/Pages/homepage.php';
     }
 
 
 
-    public function displayPage404() {
-
-        include_once __DIR__ . '/../Views/Home/page404.php';
-    }
+   
 
     public function displayMaplist()
     {
-        include_once __DIR__ . '/../Views/mapList.php';
+        include_once __DIR__ . '/../Views/Pages/mapList.php';
     }
 
     public function displayMapDetail() {
-        include_once __DIR__ . '/../Views/mapDetail.php';
+        include_once __DIR__ . '/../Views/Pages/mapDetail.php';
     }
 
     public function displayContact() {
-        include_once __DIR__ . '/../Views/contact.php';
+        include_once __DIR__ . '/../Views/Pages/contact.php';
     }
 
 
@@ -119,9 +116,37 @@ class HomeController {
     }
 
 
-    public function displayDashboard() {
+    public function displayDashboard() 
+    {
 
         include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
+
+    }
+
+    public function displayCreateRoute() 
+    {
+        include_once __DIR__ . '/../Views/Dashboard/createRoute.php';
+
+    }
+
+    public function routeDetail()
+    {
+        include_once __DIR__ . '/../Views/Dashboard/routeDetail.php';
+    }
+
+
+
+    public function signOut() 
+    {
+        session_destroy();
+        header('Location: ' . HOME_URL . '?success=Vous êtes deconnectés avec succès.');
+    }
+
+    public function displayPage404() 
+    {
+
+        include_once __DIR__ . '/../Views/Pages/page404.php';
+
     }
 
 
