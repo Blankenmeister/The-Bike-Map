@@ -124,8 +124,10 @@
 
 
 use src\Controllers\HomeController;
+use src\Controllers\userController;
 
 $homeController = new HomeController();
+$userController = new userController();
 
 $route = $_SERVER['REDIRECT_URL'] ?? '/';
 $method = $_SERVER['REQUEST_METHOD'];
@@ -152,8 +154,9 @@ switch ($route) {
 
 
     case HOME_URL . 'signIn':
+        $homeController->signIn();
         if ($method === 'POST') {
-            $userController->treatmentSignIn();
+            $userController->treatmentSignInController();
         } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
             $homeController->displayDashboard();
         } else {
@@ -162,46 +165,46 @@ switch ($route) {
         break;
 
 
-    case HOME_URL . 'dashboard/createRoute':
+    // case HOME_URL . 'dashboard/createRoute':
 
-        if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
-            $homeController->displayCreateRoute();
-        } else {
-            $homeController->signIn();
-        }
-        break;
+    //     if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+    //         $homeController->displayCreateRoute();
+    //     } else {
+    //         $homeController->signIn();
+    //     }
+    //     break;
 
 
 
-        case HOME_URL . 'dashboard/editRoute':
-                    if ($method == 'POST' && isset($_SESSION['connecte']) && $_SESSION['connecte']) {
-                        if (isset($_POST['action'])) {
-                            switch ($_POST['action']) {
-                                case 'createRoute':
-                                    $routeController->createRoute();
-                                    break;
-                                case 'editRoute':
-                                    $routeController->editRoute();
-                                    break;
-                                case 'deleteRoute':
-                                    $routeController->deleteRoute();
-                                    break;
-                                default:
-                                    // Handle unknown actions
-                                    $homeController->displayPage404();
-                                    break;
-                            }
-                        } else {
-                            // Handle the case where 'action' is not set
-                            $homeController->displayPage404();
-                        }
-                    } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
-                        $Id_route = $_GET['Id_route'];
-                        $homeController->routeDetail($Id_route);
-                    } else {
-                        $homeController->signIn();
-                    }
-                    break;
+    //     case HOME_URL . 'dashboard/editRoute':
+    //                 if ($method == 'POST' && isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+    //                     if (isset($_POST['action'])) {
+    //                         switch ($_POST['action']) {
+    //                             case 'createRoute':
+    //                                 $routeController->createRoute();
+    //                                 break;
+    //                             case 'editRoute':
+    //                                 $routeController->editRoute();
+    //                                 break;
+    //                             case 'deleteRoute':
+    //                                 $routeController->deleteRoute();
+    //                                 break;
+    //                             default:
+    //                                 // Handle unknown actions
+    //                                 $homeController->displayPage404();
+    //                                 break;
+    //                         }
+    //                     } else {
+    //                         // Handle the case where 'action' is not set
+    //                         $homeController->displayPage404();
+    //                     }
+    //                 } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+    //                     $Id_route = $_GET['Id_route'];
+    //                     $homeController->routeDetail($Id_route);
+    //                 } else {
+    //                     $homeController->signIn();
+    //                 }
+    //                 break;
 
 
 
