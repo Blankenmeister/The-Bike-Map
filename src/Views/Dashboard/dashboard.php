@@ -8,11 +8,11 @@
 
     <div class="role-content">
         <?php
-        if ($_SESSION['role'] === 'admin')
+        if ($_SESSION['role'] === 'Admin')
         {
             include_once __DIR__ . '/admin.php';
 
-        }elseif ($_SESSION['role'] === 'user')
+        }elseif ($_SESSION['role'] === 'User')
 
         {
             include_once __DIR__ . '/../User/user.php';

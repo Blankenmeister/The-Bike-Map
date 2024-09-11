@@ -21,7 +21,7 @@ public function treatmentSignInController()
 
 
 
-            $user = $userRepository->treatmentSignInRepo($email, $password);
+            $user = $userRepository->recupererUtilisateurParEmail($email, $password);
 
 
 
@@ -29,16 +29,18 @@ public function treatmentSignInController()
 
 
                 $_SESSION['connecte'] = true;
-                $_SESSION['Id_user'] = $user['Id_user'];
-                $_SESSION['last_name'] = $user['last_name'];
-                $_SESSION['first_name'] = $user['first_name'];
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['password'] = $user['password'];
-                $_SESSION['rgpd'] = $user['rgpd'];
-                $Id_role = $user['Id_role'];
-                $_SESSION['role'] = $userRepository->getRole($Id_role);
-
+                $_SESSION['Id_user'] = $user->getIdUser();
+                $_SESSION['last_name'] = $user->getLastName();
+                $_SESSION['first_name'] = $user->getFirstName();
+                $_SESSION['email'] = $user->getEmail();
+                $_SESSION['password'] = $user->getPassword();
+                $_SESSION['rgpd'] = $user->getRgpd();
+                // $Id_role = $user['Id_role'];
+                $_SESSION['role'] = $user->getNameRole();
+                // $_SESSION['role'] = $userRepository->getRole($Id_role);
+                // echo "<pre>";
                 // var_dump($_SESSION);
+                // echo "</pre>";
                 // die();
 
                 header('Location: ' . HOME_URL . 'dashboard?success=Vous êtes connectés avec succès.');

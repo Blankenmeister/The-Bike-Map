@@ -4,13 +4,16 @@ namespace src\Models;
 
 use src\Services\Hydratation;
 
-class Users {
+class User {
 
     private $Id_user;
     private $last_name;
     private $first_name;
+    private $email;
     private $password;
     private $rgpd;
+    private $Id_role;
+    private $NameRole;
 
 
     use Hydratation;
@@ -103,6 +106,60 @@ class Users {
     public function setRgpd($rgpd): self
     {
         $this->rgpd = $rgpd;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of email
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set the value of email
+     */
+    public function setEmail($email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Id_role
+     */
+    public function getIdRole()
+    {
+        return $this->Id_role;
+    }
+
+    /**
+     * Set the value of Id_role
+     */
+    public function setIdRole($Id_role): self
+    {
+        $this->Id_role = $Id_role;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of NameRole
+     */
+    public function getNameRole()
+    {
+        return $this->NameRole;
+    }
+
+    /**
+     * Set the value of NameRole
+     */
+    public function setNameRole($NameRole): self
+    {
+        $this->NameRole = $NameRole;
 
         return $this;
     }
