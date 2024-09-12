@@ -85,6 +85,7 @@
 
 namespace src\Controllers;
 
+use src\Repositories\UserRepository;
 
 class HomeController {
 
@@ -116,12 +117,13 @@ class HomeController {
     }
 
 
-    public function displayDashboard() 
-    {
+    // public function displayDashboard($id) 
+    // {
+    //     $userRepository = new UserRepository();
+    //     $user = $this->$userRepository->getUserById($id);
+    //     include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
 
-        include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
-
-    }
+    // }
 
     public function displayCreateRoute() 
     {

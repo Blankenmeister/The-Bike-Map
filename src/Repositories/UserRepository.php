@@ -65,11 +65,11 @@ class UserRepository
     // }
 
 
-    public function recupererUtilisateurParEmail($email, $password)
+    public function recupererUtilisateurParEmail($email)
     {
         try {
 
-          $sql = "SELECT ". PREFIXE ."user.id_user,
+          $sql = "SELECT bike_user.id_user,
           bike_user.last_name,
           bike_user.first_name,
           bike_user.email, 
@@ -85,27 +85,52 @@ class UserRepository
           $statement->execute([':email' => $email]);
           $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
           $user = $statement->fetch();
-
-
-            
         //   echo "<pre>";
         //     var_dump($user);
         //     echo "</pre>";
         // die();
 
-            if (!$user) {
-                throw new Exception('Votre mot de passe est incorrect');
-            }
+            return $user;
+            
+        } catch (PDOException $e) {
+
+          
+            // Log detailed error message
+            error_log('Database Error: ' . $e->getMessage());
+
+            throw new Exception('An error occurred during registration: ' . $e->getMessage());
+        }
+    }
+
+    public function getUserById($id)
+    {
+        try {
+
+        $sql = "SELECT bike_user.id_user,
+          bike_user.last_name,
+          bike_user.first_name,
+          bike_user.email, 
+          bike_user.password, 
+          bike_user.rgpd, 
+          bike_role.name AS NameRole,
+          bike_role.id_role AS IdRole FROM bike_user
+          LEFT JOIN bike_role ON bike_user.id_role = bike_role.id_role 
+          WHERE bike_user.id_user = :id_user;";
+      
+          $statement = $this->DB->prepare($sql);
+      
+          $statement->execute([':id_user' => $id]);
+          $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
+          $user = $statement->fetch();
+
 
             
+          echo "<pre>";
+            var_dump($user);
+            echo "</pre>";
+        die();
 
-            // Verify password
-            if (!password_verify($password, $user->getPassword())) {
-                
-            
-                throw new Exception('votre email est pas ok');
-                    
-            }
+           
 
             
 
@@ -123,6 +148,9 @@ class UserRepository
             throw new Exception('An error occurred during registration: ' . $e->getMessage());
         }
     }
+
+
+
 
   //   public function recupererUtilisateurParEmail($mailConnexion)
   // {
