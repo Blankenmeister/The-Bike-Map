@@ -22,6 +22,18 @@
             echo '<div class="alert alert-warning">Erreur - veuillez vous déconnecter</div>';
             
         };
+
+
+        
+        ?>
+         <?php
+        // if ($_SESSION['role'] === 'Admin'):
+        //     include_once __DIR__ . '/admin.php';
+        // elseif ($_SESSION['role'] === 'User'):
+        //     include_once __DIR__ . '/../Use/user.php';
+        // else:
+        //     echo '<div class="alert alert-warning">Erreur - veuillez vous déconnecter</div>';
+        // endif;
         ?>
     </div>
 </div>

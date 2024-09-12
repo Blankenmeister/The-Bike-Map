@@ -154,7 +154,6 @@ switch ($route) {
 
 
     case HOME_URL . 'signIn':
-        $homeController->signIn();
         if ($method === 'POST') {
             $userController->treatmentSignInController();
         } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
@@ -163,6 +162,19 @@ switch ($route) {
             $homeController->signIn();
         }
         break;
+
+
+        case HOME_URL . 'dashboard':
+            if ($method === 'POST') {
+                $userController->treatmentSignInController();
+            } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+                $homeController->displayDashboard();
+            } else {
+                $homeController->signIn();
+            }
+            break;
+
+
 
 
     // case HOME_URL . 'dashboard/createRoute':
