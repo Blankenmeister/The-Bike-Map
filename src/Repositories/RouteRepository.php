@@ -52,26 +52,36 @@ class RouteRepository
   }
 
   public function CreateRoute(Route $route)
-  {
-    $sql = "INSERT INTO bike_route (name, description, duration, distance, elevation, altitude, circuit, creation_date, map_link) VALUES (:name, :description, :duration, :distance, :elevation, :altitude, :circuit, :creation_date, :map_link);";
+{
+    try {
+        // Requête SQL d'insertion
+        $sql = "INSERT INTO bike_route 
+                (name, description, duration, distance, elevation, altitude, circuit, creation_date, map_link) 
+                VALUES (:name, :description, :duration, :distance, :elevation, :altitude, :circuit, :creation_date, :map_link);";
+        
+        // Préparation de la requête
+        $statement = $this->DB->prepare($sql);
 
-    $statement = $this->DB->prepare($sql);
+        // Exécution avec les paramètres
+        $statement->execute([
+            ':name'            => $route->getName(),
+            ':description'     => $route->getDescription(),
+            ':duration'        => $route->getDuration(),
+            ':distance'        => $route->getDistance(),
+            ':elevation'       => $route->getElevation(),
+            ':altitude'        => $route->getAltitude(),
+            ':circuit'         => $route->getCircuit(),
+            ':creation_date'   => $route->getCreationDate(),
+            ':map_link'        => $route->getMapLink()
+        ]);
 
-    $statement->execute([
-      ':name'              => $route->getName(),
-      ':description'       => $route->getDescription(),
-      ':duration'          => $route->getDuration(),
-      ':distance'          => $route->getDistance(),
-      ':elevation'         => $route->getElevation(),
-      ':altitude'          => $route->getAltitude(),
-      ':circuit'           => $route->getCircuit(),
-      ':creation_date'     => $route->getCreationDate(),
-      ':map_link'          => $route->getMapLink()
-    ]);
-
-    return $this->DB->lastInsertId();
-    
-  }
-
-
+        // Récupérer l'ID de la dernière insertion
+        return $this->DB->lastInsertId();
+        
+    } catch (Exception $e) {
+        // Gestion des erreurs : journalisation ou gestion spécifique
+        error_log('Erreur lors de la création de la route : ' . $e->getMessage());
+        return false; // ou une autre manière de signaler l'erreur
+    }
+}
 }
