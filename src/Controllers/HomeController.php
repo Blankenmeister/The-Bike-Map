@@ -122,14 +122,6 @@ class HomeController
   }
 
 
-  // public function displayDashboard($id) 
-  // {
-  //     $userRepository = new UserRepository();
-  //     $user = $this->$userRepository->getUserById($id);
-  //     include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
-
-  // }
-
   public function displayCreateRoute()
   {
     include_once __DIR__ . '/../Views/Dashboard/createRoute.php';

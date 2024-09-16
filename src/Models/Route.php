@@ -14,18 +14,20 @@ class Route {
     private $elevation;
     private $altitude;
     private $circuit;
-    private $crestion_date;
+    private $creation_date;
     private $map_link;
     private $Id_type;
+    private $typeName;
     private $Id_level;
+    private $levelName;
     private $Id_user;
     private $Id_favourite;
     private $Id_like;
     private $Id_comment;
 
 
-    public function __construct($Id_route, $name, $description, $duration, $distance, $elevation, $altitude, $circuit, $crestion_date,
-    $map_link, $Id_type, $Id_level, $Id_user, $Id_favourite, $Id_like, $Id_comment)
+    public function __construct($Id_route, $name, $description, $duration, $distance, $elevation, $altitude, $circuit, $creation_date,
+    $map_link, $Id_type, $typeName, $levelName, $Id_level, $Id_user, $Id_favourite, $Id_like, $Id_comment)
     {
         $this->Id_route = $Id_route;
         $this->name = $name;
@@ -35,10 +37,12 @@ class Route {
         $this->elevation = $elevation;
         $this->altitude = $altitude;
         $this->circuit = $circuit;
-        $this->crestion_date = $crestion_date;
+        $this->creation_date = $creation_date;
         $this->map_link = $map_link;
         $this->Id_type = $Id_type;
+        $this->typeName = $typeName;
         $this->Id_level = $Id_level;
+        $this->levelName = $levelName;
         $this->Id_user = $Id_user;
         $this->Id_favourite = $Id_favourite;
         $this->Id_like = $Id_like;
@@ -191,20 +195,20 @@ class Route {
     }
 
     /**
-     * Get the value of crestion_date
+     * Get the value of creation_date
      */
-    public function getCrestionDate()
+    public function getCreationDate()
     {
-        return $this->crestion_date->format('Y-m-d');
+        return $this->creation_date->format('Y-m-d');
         
     }
 
     /**
-     * Set the value of crestion_date
+     * Set the value of creation_date
      */
-    public function setCrestionDate(DateTime $crestion_date): self
+    public function setCreationDate(DateTime $creation_date): self
     {
-        $this->crestion_date = $crestion_date;
+        $this->creation_date = $creation_date;
 
         return $this;
     }
@@ -331,6 +335,42 @@ class Route {
     public function setIdComment($Id_comment): self
     {
         $this->Id_comment = $Id_comment;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of typeName
+     */
+    public function getTypeName()
+    {
+        return $this->typeName;
+    }
+
+    /**
+     * Set the value of typeName
+     */
+    public function setTypeName($typeName): self
+    {
+        $this->typeName = $typeName;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of levelName
+     */
+    public function getLevelName()
+    {
+        return $this->levelName;
+    }
+
+    /**
+     * Set the value of levelName
+     */
+    public function setLevelName($levelName): self
+    {
+        $this->levelName = $levelName;
 
         return $this;
     }

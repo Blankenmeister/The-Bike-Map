@@ -49,10 +49,12 @@ class userController
 
       header('Location: ' . HOME_URL . 'dashboard?success=Vous êtes connectés avec succès.');
       exit();
-    } catch (Exception $e) {
+      // include 'dashboard avec une $success message'; puis dans la vue : echo $success;
+          } catch (Exception $e) {
       error_log("SignUp Error: " . $e->getMessage()); // Log the error for debugging
       // Redirect to sign-up page with error message
       header('Location: ' . HOME_URL . 'signIn?error=' . urlencode($e->getMessage()));
+      
     }
   }
 

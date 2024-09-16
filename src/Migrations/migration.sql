@@ -36,7 +36,7 @@ CREATE TABLE bike_route(
    Id_route INT AUTO_INCREMENT,
    name VARCHAR(250)  NOT NULL,
    description TEXT NOT NULL,
-   duration TIME NOT NULL,
+   duration VARCHAR(50) NOT NULL,
    distance VARCHAR(50)  NOT NULL,
    elevation VARCHAR(50)  NOT NULL,
    altitude VARCHAR(50)  NOT NULL,
