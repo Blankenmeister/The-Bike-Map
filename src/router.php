@@ -135,43 +135,43 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route) {
 
-    case HOME_URL:
-        $homeController->index();
-        break;
+  case HOME_URL:
+    $homeController->index();
+    break;
 
-    case HOME_URL . 'mapList':
-        $homeController->displayMapList();
-        break;
+  case HOME_URL . 'mapList':
+    $homeController->displayMapList();
+    break;
 
-    case HOME_URL . 'mapDetail':
-        $homeController->displayMapDetail();
-        break;
+  case HOME_URL . 'mapDetail':
+    $homeController->displayMapDetail();
+    break;
 
-    case HOME_URL . 'contact':
-        $homeController->displayContact();
-        break;
-
-
-
-    case HOME_URL . 'signIn':
-        if ($method === 'POST') {
-            $userController->treatmentSignInController();
-        // } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
-        //     $userController->displayDashboard();
-        } else {
-            $homeController->signIn();
-        }
-        break;
+  case HOME_URL . 'contact':
+    $homeController->displayContact();
+    break;
 
 
-        case HOME_URL . 'dashboard':
-            if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
-                
-                $userController->displayDashboard();
-            } else {
-                $homeController->signIn();
-            }
-            break;
+
+  case HOME_URL . 'signIn':
+    if ($method === 'POST') {
+      $userController->treatmentSignInController();
+      // } elseif (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+      //     $userController->displayDashboard();
+    } else {
+      $homeController->signIn();
+    }
+    break;
+
+
+  case HOME_URL . 'dashboard':
+    if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+
+      $userController->displayDashboard();
+    } else {
+      $homeController->signIn();
+    }
+    break;
 
 
 
@@ -223,11 +223,11 @@ switch ($route) {
 
 
 
-    case HOME_URL . 'signOut':
-        $homeController->signOut();
-        break;
+  case HOME_URL . 'signOut':
+    $homeController->signOut();
+    break;
 
-    default:
-        $homeController->displayPage404();
-        break;
+  default:
+    $homeController->displayPage404();
+    break;
 }

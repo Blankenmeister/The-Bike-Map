@@ -16,9 +16,16 @@ class Route {
     private $circuit;
     private $crestion_date;
     private $map_link;
+    private $Id_type;
+    private $Id_level;
+    private $Id_user;
+    private $Id_favourite;
+    private $Id_like;
+    private $Id_comment;
+
 
     public function __construct($Id_route, $name, $description, $duration, $distance, $elevation, $altitude, $circuit, $crestion_date,
-    $map_link)
+    $map_link, $Id_type, $Id_level, $Id_user, $Id_favourite, $Id_like, $Id_comment)
     {
         $this->Id_route = $Id_route;
         $this->name = $name;
@@ -30,6 +37,13 @@ class Route {
         $this->circuit = $circuit;
         $this->crestion_date = $crestion_date;
         $this->map_link = $map_link;
+        $this->Id_type = $Id_type;
+        $this->Id_level = $Id_level;
+        $this->Id_user = $Id_user;
+        $this->Id_favourite = $Id_favourite;
+        $this->Id_like = $Id_like;
+        $this->Id_comment = $Id_comment;
+
     }
 
     /**
@@ -209,6 +223,114 @@ class Route {
     public function setMapLink($map_link): self
     {
         $this->map_link = $map_link;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Id_type
+     */
+    public function getIdType()
+    {
+        return $this->Id_type;
+    }
+
+    /**
+     * Set the value of Id_type
+     */
+    public function setIdType($Id_type): self
+    {
+        $this->Id_type = $Id_type;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Id_level
+     */
+    public function getIdLevel()
+    {
+        return $this->Id_level;
+    }
+
+    /**
+     * Set the value of Id_level
+     */
+    public function setIdLevel($Id_level): self
+    {
+        $this->Id_level = $Id_level;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Id_user
+     */
+    public function getIdUser()
+    {
+        return $this->Id_user;
+    }
+
+    /**
+     * Set the value of Id_user
+     */
+    public function setIdUser($Id_user): self
+    {
+        $this->Id_user = $Id_user;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Id_favourite
+     */
+    public function getIdFavourite()
+    {
+        return $this->Id_favourite;
+    }
+
+    /**
+     * Set the value of Id_favourite
+     */
+    public function setIdFavourite($Id_favourite): self
+    {
+        $this->Id_favourite = $Id_favourite;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Id_like
+     */
+    public function getIdLike()
+    {
+        return $this->Id_like;
+    }
+
+    /**
+     * Set the value of Id_like
+     */
+    public function setIdLike($Id_like): self
+    {
+        $this->Id_like = $Id_like;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Id_comment
+     */
+    public function getIdComment()
+    {
+        return $this->Id_comment;
+    }
+
+    /**
+     * Set the value of Id_comment
+     */
+    public function setIdComment($Id_comment): self
+    {
+        $this->Id_comment = $Id_comment;
 
         return $this;
     }

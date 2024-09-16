@@ -9,57 +9,57 @@ use src\Repositories\UserRepository;
 class userController
 {
 
-    public function treatmentSignInController()
-    {
-        try {
+  public function treatmentSignInController()
+  {
+    try {
 
-            $userRepository = new UserRepository();
+      $userRepository = new UserRepository();
 
-            // traiter les erreurs
-            $email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : null;
-            $password = isset($_POST['password']) ? htmlspecialchars($_POST['password']) : null;
+      // traiter les erreurs
+      $email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : null;
+      $password = isset($_POST['password']) ? htmlspecialchars($_POST['password']) : null;
 
 
 
-            $user = $userRepository->recupererUtilisateurParEmail($email, $password);
+      $user = $userRepository->getUserByMail($email, $password);
 
-            // Verify password
-            if (!$user || !password_verify($password, $user->getPassword())) {
+      // Verify password
+      if (!$user || !password_verify($password, $user->getPassword())) {
 
-                echo 'Mot de passe ou email incorrect';
-                die;
-            }
+        echo 'Mot de passe ou email incorrect';
+        die;
+      }
 
-            $_SESSION['connecte'] = true;
-            $_SESSION['user'] = $user->transformObjectToArray();
+      $_SESSION['connecte'] = true;
+      $_SESSION['user'] = $user->transformObjectToArray();
 
-            // $_SESSION['Id_user'] = $user->getIdUser();
-            // $_SESSION['last_name'] = $user->getLastName();
-            // $_SESSION['first_name'] = $user->getFirstName();
-            // $_SESSION['email'] = $user->getEmail();
-            // $_SESSION['password'] = $user->getPassword();
-            // $_SESSION['rgpd'] = $user->getRgpd();
-            // // $Id_role = $user['Id_role'];
-            // $_SESSION['role'] = $user->getNameRole();
-            // $_SESSION['role'] = $userRepository->getRole($Id_role);
-            // echo "<pre>";
-            // var_dump($_SESSION);
-            // echo "</pre>";
-            // die();
+      // $_SESSION['Id_user'] = $user->getIdUser();
+      // $_SESSION['last_name'] = $user->getLastName();
+      // $_SESSION['first_name'] = $user->getFirstName();
+      // $_SESSION['email'] = $user->getEmail();
+      // $_SESSION['password'] = $user->getPassword();
+      // $_SESSION['rgpd'] = $user->getRgpd();
+      // // $Id_role = $user['Id_role'];
+      // $_SESSION['role'] = $user->getNameRole();
+      // $_SESSION['role'] = $userRepository->getRole($Id_role);
+      // echo "<pre>";
+      // var_dump($_SESSION);
+      // echo "</pre>";
+      // die();
 
-            header('Location: ' . HOME_URL . 'dashboard?success=Vous êtes connectés avec succès.');
-            exit();
-        } catch (Exception $e) {
-            error_log("SignUp Error: " . $e->getMessage()); // Log the error for debugging
-            // Redirect to sign-up page with error message
-            header('Location: ' . HOME_URL . 'signIn?error=' . urlencode($e->getMessage()));
-        }
+      header('Location: ' . HOME_URL . 'dashboard?success=Vous êtes connectés avec succès.');
+      exit();
+    } catch (Exception $e) {
+      error_log("SignUp Error: " . $e->getMessage()); // Log the error for debugging
+      // Redirect to sign-up page with error message
+      header('Location: ' . HOME_URL . 'signIn?error=' . urlencode($e->getMessage()));
     }
+  }
 
-    public function displayDashboard()
-    {
-        $user = new User($_SESSION['user']);
+  public function displayDashboard()
+  {
+    $user = new User($_SESSION['user']);
 
-        include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
-    }
+    include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
+  }
 }

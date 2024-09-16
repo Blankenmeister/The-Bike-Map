@@ -33,7 +33,7 @@
 
 //             $allPersonnelsWithStatus[] = $personnel;
 //         }
-        
+
 
 //         $vehiculesRepository = new VehiculesRepository;
 //         $vehicules = $vehiculesRepository->getAllVehicules();
@@ -53,10 +53,10 @@
 //         $personnel = $personnelsRepository->getPersonnelById($Id_personnel);
 //         $statuts = $personnelsRepository->getAllStatus();
 //         $statuts_personnel = $personnelsRepository->getStatusOfThisPersonnel($Id_personnel);
-    
+
 //         include_once __DIR__ . '/../Views/dashboard/personnel_detaille.php';
 //     }
-    
+
 
 //     public function afficherPageVehiculeDetaille($Id_vehicule)
 //     {
@@ -87,69 +87,70 @@ namespace src\Controllers;
 
 use src\Repositories\UserRepository;
 
-class HomeController {
+class HomeController
+{
 
-    public function index() {
+  public function index()
+  {
 
-        include_once __DIR__ . '/../Views/Pages/homepage.php';
-    }
-
-
-
-   
-
-    public function displayMaplist()
-    {
-        include_once __DIR__ . '/../Views/Pages/mapList.php';
-    }
-
-    public function displayMapDetail() {
-        include_once __DIR__ . '/../Views/Pages/mapDetail.php';
-    }
-
-    public function displayContact() {
-        include_once __DIR__ . '/../Views/Pages/contact.php';
-    }
-
-
-    public function signIn() {
-        include_once __DIR__ . '/../Views/SignIn/signIn.php';
-    }
-
-
-    // public function displayDashboard($id) 
-    // {
-    //     $userRepository = new UserRepository();
-    //     $user = $this->$userRepository->getUserById($id);
-    //     include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
-
-    // }
-
-    public function displayCreateRoute() 
-    {
-        include_once __DIR__ . '/../Views/Dashboard/createRoute.php';
-
-    }
-
-    public function routeDetail()
-    {
-        include_once __DIR__ . '/../Views/Dashboard/routeDetail.php';
-    }
+    include_once __DIR__ . '/../Views/Pages/homepage.php';
+  }
 
 
 
-    public function signOut() 
-    {
-        session_destroy();
-        header('Location: ' . HOME_URL . 'signIn?success=Vous êtes deconnectés avec succès.');
-    }
-
-    public function displayPage404() 
-    {
-
-        include_once __DIR__ . '/../Views/Pages/page404.php';
-
-    }
 
 
+  public function displayMaplist()
+  {
+    include_once __DIR__ . '/../Views/Pages/mapList.php';
+  }
+
+  public function displayMapDetail()
+  {
+    include_once __DIR__ . '/../Views/Pages/mapDetail.php';
+  }
+
+  public function displayContact()
+  {
+    include_once __DIR__ . '/../Views/Pages/contact.php';
+  }
+
+
+  public function signIn()
+  {
+    include_once __DIR__ . '/../Views/SignIn/signIn.php';
+  }
+
+
+  // public function displayDashboard($id) 
+  // {
+  //     $userRepository = new UserRepository();
+  //     $user = $this->$userRepository->getUserById($id);
+  //     include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
+
+  // }
+
+  public function displayCreateRoute()
+  {
+    include_once __DIR__ . '/../Views/Dashboard/createRoute.php';
+  }
+
+  public function routeDetail()
+  {
+    include_once __DIR__ . '/../Views/Dashboard/routeDetail.php';
+  }
+
+
+
+  public function signOut()
+  {
+    session_destroy();
+    header('Location: ' . HOME_URL . 'signIn?success=Vous êtes deconnectés avec succès.');
+  }
+
+  public function displayPage404()
+  {
+
+    include_once __DIR__ . '/../Views/Pages/page404.php';
+  }
 }
