@@ -18,3 +18,7 @@
 <div class="col-lg-3 col-md-6 mobile-center">
   <a class="btn rounded-pill" href="<?= Domain . HOME_URL ?>dashboard/createRoute">Créer un parcours</a>
 </div>
+
+<div class="col-lg-3 col-md-6 mobile-center">
+  <a class="btn rounded-pill" href="<?= Domain . HOME_URL ?>dashboard/routeList">Liste des parcours</a>
+</div>

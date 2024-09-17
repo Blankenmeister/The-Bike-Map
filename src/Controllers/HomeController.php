@@ -122,10 +122,7 @@ class HomeController
   }
 
 
-  public function displayCreateRoute()
-  {
-    include_once __DIR__ . '/../Views/Dashboard/createRoute.php';
-  }
+  
 
   public function routeDetail()
   {

@@ -247,7 +247,16 @@
     
         case HOME_URL . 'dashboard/createRoute':
             if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
-                $homeController->displayCreateRoute();
+                $routeController->displayCreateRoute();
+            } else {
+                $homeController->signIn();
+            }
+            break;
+
+
+        case HOME_URL . 'dashboard/routeList':
+            if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+                $routeController->displayRouteList();
             } else {
                 $homeController->signIn();
             }

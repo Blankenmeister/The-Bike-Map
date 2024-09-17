@@ -9,6 +9,14 @@ use src\Repositories\RouteRepository;
 
 class RouteController {
 
+
+    public function displayCreateRoute()
+    {
+      include_once __DIR__ . '/../Views/Dashboard/createRoute.php';
+    }
+
+
+
     public function addRoute() {
         try {
             
@@ -60,6 +68,7 @@ class RouteController {
     //   die();
             // Rediriger vers le tableau de bord après l'insertion réussie
             header('Location: /dashboard');
+            // echo'Votre parcours a bien été ajouté.';
             exit;
 
         } catch (Exception $e) {
@@ -69,4 +78,21 @@ class RouteController {
             exit;
         }
     }
+
+
+    public function displayRouteList()
+    {
+        $routeRepository = new RouteRepository();
+        // Récupérer tous les parcours
+        $routes = $routeRepository->getAllRoutes();
+     
+      include_once __DIR__ . '/../Views/Dashboard/routeList.php';
+    }
+
+
+
+
+  
+
+
 }

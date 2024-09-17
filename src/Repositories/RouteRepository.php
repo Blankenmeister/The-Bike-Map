@@ -38,17 +38,22 @@ class RouteRepository
   bike_route.map_link,
   bike_route.Id_User AS Id_user,
   bike_level.Id_level AS Id_level,
-  bike_level.name AS level_name,
+  bike_level.name AS levelName,
   bike_type.Id_type AS Id_type,
-  bike_type.name AS type_name
+  bike_type.name AS typeName
+  bike_comment.Id_comment AS Id_comment,
   FROM bike_route 
   LEFT JOIN bike_type ON bike_route.Id_type = bike_type.Id_type
   LEFT JOIN bike_user ON bike_route.Id_User = bike_user.Id_user
   LEFT JOIN bike_favourite ON bike_route.Id_route = bike_favourite.Id_route
   LEFT JOIN bike_like ON bike_route.Id_route = bike_like.Id_route
-  LEFT JOIN bike_level ON bike_route.Id_level = bike_level.Id_level;";
+  LEFT JOIN bike_level ON bike_route.Id_level = bike_level.Id_level;
+  LEFT JOIN bike_comment ON bike_route.Id_comment = bike_comment.Id_comment;";
 
     return  $this->DB->query($sql)->fetchAll(PDO::FETCH_CLASS, Route::class);
+
+    var_dump($sql);
+    die();
   }
 
   public function CreateRoute(Route $route)
@@ -86,4 +91,12 @@ class RouteRepository
         return false; // ou une autre manière de signaler l'erreur
     }
 }
+
+
+
+
+
+
+
+
 }
