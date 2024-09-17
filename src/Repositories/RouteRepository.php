@@ -56,8 +56,8 @@ class RouteRepository
     try {
         // Requête SQL d'insertion
         $sql = "INSERT INTO bike_route 
-                (name, description, duration, distance, elevation, altitude, circuit, creation_date, map_link) 
-                VALUES (:name, :description, :duration, :distance, :elevation, :altitude, :circuit, :creation_date, :map_link);";
+                (name, description, duration, distance, elevation, altitude, circuit, creation_date, map_link, Id_level, Id_type)  
+                VALUES (:name, :description, :duration, :distance, :elevation, :altitude, :circuit, :creation_date, :map_link, :Id_level, :Id_type);";
         
         // Préparation de la requête
         $statement = $this->DB->prepare($sql);
@@ -72,7 +72,9 @@ class RouteRepository
             ':altitude'        => $route->getAltitude(),
             ':circuit'         => $route->getCircuit(),
             ':creation_date'   => $route->getCreationDate(),
-            ':map_link'        => $route->getMapLink()
+            ':map_link'        => $route->getMapLink(),
+            ':Id_level'        => $route->getIdLevel(),
+            ':Id_type'         => $route->getIdType()
         ]);
 
         // Récupérer l'ID de la dernière insertion

@@ -40,7 +40,7 @@ CREATE TABLE bike_route(
    distance VARCHAR(50)  NOT NULL,
    elevation VARCHAR(50)  NOT NULL,
    altitude VARCHAR(50)  NOT NULL,
-   circuit BOOLEAN NOT NULL,
+   circuit VARCHAR(50) NOT NULL,
    creation_date DATETIME NOT NULL,
    map_link VARCHAR(150)  NOT NULL,
    Id_type INT NOT NULL,

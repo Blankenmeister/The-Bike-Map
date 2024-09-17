@@ -23,12 +23,15 @@ class RouteController {
             $circuit = isset($_POST['circuit']) ? htmlspecialchars($_POST['circuit']) : null;
             $creation_date = isset($_POST['creation_date']) ? htmlspecialchars($_POST['creation_date']) : null;
             $map_link = isset($_POST['map_link']) ? htmlspecialchars($_POST['map_link']) : null;
+            $Id_type = isset($_POST['Id_type']) ? htmlspecialchars($_POST['Id_type']) : null;
+            $Id_level = isset($_POST['Id_level']) ? htmlspecialchars($_POST['Id_level']) : null;
 
-            // var_dump($name, $description, $duration, $distance, $elevation, $altitude, $circuit, $creation_date, $map_link);
+
+            // var_dump($name, $description, $duration, $distance, $elevation, $altitude, $circuit, $creation_date, $map_link, $Id_type, $Id_level);
             // die();
 
             // Vérifiez si tous les champs obligatoires sont remplis
-            if (!$name || !$description || !$duration || !$distance || !$elevation || !$altitude || !$circuit || !$creation_date || !$map_link) {
+            if (!$name || !$description || !$duration || !$distance || !$elevation || !$altitude || !$circuit || !$creation_date || !$map_link || !$Id_type || !$Id_level) {
                 throw new Exception('Des champs obligatoires sont manquants.');
             }
 
@@ -39,13 +42,22 @@ class RouteController {
             }
 
             // Créez l'objet Route après avoir récupéré les valeurs
-            $route = new Route(null, $name, $description, $duration, $distance, $elevation, $altitude, $circuit, $creation_date, $map_link, null, null, null, null, null, null, null, null);
+            $route = new Route(null, $name, $description, $duration, $distance, $elevation, $altitude, $circuit, $creation_date, $map_link, $Id_type, null, null, $Id_level, null, null, null, null);
+
+
 
             $routeRepository = new RouteRepository();
+
 
             // Instancier le repository et ajouter la route
             $routeRepository->CreateRoute($route);
 
+            // var_dump($route);
+            // die();
+    //           echo "<pre>";
+    //       var_dump($route);
+    //       echo "</pre>";
+    //   die();
             // Rediriger vers le tableau de bord après l'insertion réussie
             header('Location: /dashboard');
             exit;

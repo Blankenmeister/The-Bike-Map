@@ -43,12 +43,17 @@
     <input type="date" id="creation_date" name="creation_date" autocomplete="creation_date" class="form-control add-creation_date" required>
   </div>
 
-  <div class="form-check">
+  <div class="mb-3 d-flex flex-row justify-content-between">
+    <label for="circuit" class="form-label">Boucle :</label>
+    <input type="text" id="circuit" name="circuit" autocomplete="circuit" class="form-control add-circuit" required placeholder="Entrez le mot boucle si c'est une boucle">
+  </div>
+
+  <!--<div class="form-check">
   <input class="form-check-input" type="radio" name="circuit" id="circuit">
   <label class="form-check-label" for="circuit">
     oui
   </label>
-</div>
+</div>-->
 
   <div class="col-lg-4 col-md-6">
     <div class="mb-3 d-flex flex-row justify-content-between">
@@ -87,4 +92,4 @@
 </form>
 
 <!-- Exemple de hash de mot de passe -->
-<?php echo password_hash("romain@bike.fr", PASSWORD_DEFAULT); ?>
+ <?php echo password_hash("romain@bike.fr", PASSWORD_DEFAULT); ?> 
