@@ -3,57 +3,35 @@
 namespace src\Models;
 
 use DateTime;
+use src\Services\Hydratation;
 
 class Route {
     
-    private $Id_route;
-    private $name;
-    private $description;
-    private $duration;
-    private $distance;
-    private $elevation;
-    private $altitude;
-    private $circuit;
-    private $creation_date;
-    private $map_link;
-    private $Id_type;
-    private $typeName;
-    private $Id_level;
-    private $levelName;
-    private $Id_user;
-    private $Id_favourite;
-    private $Id_like;
-    private $Id_comment;
+    private int $Id_route;
+    private string $name;
+    private string $description;
+    private DateTime $duration;
+    private float $distance;
+    private int $elevation;
+    private int $altitude;
+    private bool $circuit;
+    private DateTime $creation_date;
+    private string $map_link;
+    private Type $type;
+    private Level $level;
+    private User $user;
+    private Favourite $favourite;
+    private Like $like;
+    private Comment $comment;
 
+    use Hydratation;
 
-    public function __construct($Id_route, $name, $description, $duration, $distance, $elevation, $altitude, $circuit, $creation_date,
-    $map_link, $Id_type, $typeName, $levelName, $Id_level, $Id_user, $Id_favourite, $Id_like, $Id_comment)
-    {
-        $this->Id_route = $Id_route;
-        $this->name = $name;
-        $this->description = $description;
-        $this->duration = $duration;
-        $this->distance = $distance;
-        $this->elevation = $elevation;
-        $this->altitude = $altitude;
-        $this->circuit = $circuit;
-        $this->creation_date = $creation_date;
-        $this->map_link = $map_link;
-        $this->Id_type = $Id_type;
-        $this->typeName = $typeName;
-        $this->Id_level = $Id_level;
-        $this->levelName = $levelName;
-        $this->Id_user = $Id_user;
-        $this->Id_favourite = $Id_favourite;
-        $this->Id_like = $Id_like;
-        $this->Id_comment = $Id_comment;
-
-    }
+  
 
     /**
      * Get the value of Id_route
      */
-    public function getIdRoute()
+    public function getIdRoute(): int
     {
         return $this->Id_route;
     }
@@ -61,7 +39,7 @@ class Route {
     /**
      * Set the value of Id_route
      */
-    public function setIdRoute($Id_route): self
+    public function setIdRoute(int $Id_route): self
     {
         $this->Id_route = $Id_route;
 
@@ -71,7 +49,7 @@ class Route {
     /**
      * Get the value of name
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -79,7 +57,7 @@ class Route {
     /**
      * Set the value of name
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -89,7 +67,7 @@ class Route {
     /**
      * Get the value of description
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -97,7 +75,7 @@ class Route {
     /**
      * Set the value of description
      */
-    public function setDescription($description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -107,7 +85,7 @@ class Route {
     /**
      * Get the value of duration
      */
-    public function getDuration()
+    public function getDuration(): DateTime
     {
         return $this->duration;
     }
@@ -115,7 +93,7 @@ class Route {
     /**
      * Set the value of duration
      */
-    public function setDuration($duration): self
+    public function setDuration(DateTime $duration): self
     {
         $this->duration = $duration;
 
@@ -125,7 +103,7 @@ class Route {
     /**
      * Get the value of distance
      */
-    public function getDistance()
+    public function getDistance(): float
     {
         return $this->distance;
     }
@@ -133,7 +111,7 @@ class Route {
     /**
      * Set the value of distance
      */
-    public function setDistance($distance): self
+    public function setDistance(float $distance): self
     {
         $this->distance = $distance;
 
@@ -143,7 +121,7 @@ class Route {
     /**
      * Get the value of elevation
      */
-    public function getElevation()
+    public function getElevation(): int
     {
         return $this->elevation;
     }
@@ -151,7 +129,7 @@ class Route {
     /**
      * Set the value of elevation
      */
-    public function setElevation($elevation): self
+    public function setElevation(int $elevation): self
     {
         $this->elevation = $elevation;
 
@@ -161,7 +139,7 @@ class Route {
     /**
      * Get the value of altitude
      */
-    public function getAltitude()
+    public function getAltitude(): int
     {
         return $this->altitude;
     }
@@ -169,7 +147,7 @@ class Route {
     /**
      * Set the value of altitude
      */
-    public function setAltitude($altitude): self
+    public function setAltitude(int $altitude): self
     {
         $this->altitude = $altitude;
 
@@ -179,7 +157,12 @@ class Route {
     /**
      * Get the value of circuit
      */
-    public function getCircuit()
+    public function isCircuit(): bool
+    {
+        return $this->circuit;
+    }
+
+    public function getCircuit(): bool
     {
         return $this->circuit;
     }
@@ -187,7 +170,7 @@ class Route {
     /**
      * Set the value of circuit
      */
-    public function setCircuit($circuit): self
+    public function setCircuit(bool $circuit): self
     {
         $this->circuit = $circuit;
 
@@ -197,11 +180,9 @@ class Route {
     /**
      * Get the value of creation_date
      */
-    public function getCreationDate()
+    public function getCreationDate(): DateTime
     {
         return $this->creation_date;
-        // return $this->creation_date->format('Y-m-d');
-        
     }
 
     /**
@@ -217,7 +198,7 @@ class Route {
     /**
      * Get the value of map_link
      */
-    public function getMapLink()
+    public function getMapLink(): string
     {
         return $this->map_link;
     }
@@ -225,7 +206,7 @@ class Route {
     /**
      * Set the value of map_link
      */
-    public function setMapLink($map_link): self
+    public function setMapLink(string $map_link): self
     {
         $this->map_link = $map_link;
 
@@ -233,146 +214,115 @@ class Route {
     }
 
     /**
-     * Get the value of Id_type
+     * Get the value of type
      */
-    public function getIdType()
+    public function getType(): Type
     {
-        return $this->Id_type;
+        return $this->type;
     }
 
     /**
-     * Set the value of Id_type
+     * Set the value of type
      */
-    public function setIdType($Id_type): self
+    public function setType(Type $type): self
     {
-        $this->Id_type = $Id_type;
+        $this->type = $type;
 
         return $this;
     }
 
     /**
-     * Get the value of Id_level
+     * Get the value of level
      */
-    public function getIdLevel()
+    public function getLevel(): Level
     {
-        return $this->Id_level;
+        return $this->level;
     }
 
     /**
-     * Set the value of Id_level
+     * Set the value of level
      */
-    public function setIdLevel($Id_level): self
+    public function setLevel(Level $level): self
     {
-        $this->Id_level = $Id_level;
+        $this->level = $level;
 
         return $this;
     }
 
     /**
-     * Get the value of Id_user
+     * Get the value of user
      */
-    public function getIdUser()
+    public function getUser(): User
     {
-        return $this->Id_user;
+        return $this->user;
     }
 
     /**
-     * Set the value of Id_user
+     * Set the value of user
      */
-    public function setIdUser($Id_user): self
+    public function setUser(User $user): self
     {
-        $this->Id_user = $Id_user;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get the value of Id_favourite
+     * Get the value of favourite
      */
-    public function getIdFavourite()
+    public function getFavourite(): Favourite
     {
-        return $this->Id_favourite;
+        return $this->favourite;
     }
 
     /**
-     * Set the value of Id_favourite
+     * Set the value of favourite
      */
-    public function setIdFavourite($Id_favourite): self
+    public function setFavourite(Favourite $favourite): self
     {
-        $this->Id_favourite = $Id_favourite;
+        $this->favourite = $favourite;
 
         return $this;
     }
 
     /**
-     * Get the value of Id_like
+     * Get the value of like
      */
-    public function getIdLike()
+    public function getLike(): Like
     {
-        return $this->Id_like;
+        return $this->like;
     }
 
     /**
-     * Set the value of Id_like
+     * Set the value of like
      */
-    public function setIdLike($Id_like): self
+    public function setLike(Like $like): self
     {
-        $this->Id_like = $Id_like;
+        $this->like = $like;
 
         return $this;
     }
 
     /**
-     * Get the value of Id_comment
+     * Get the value of comment
      */
-    public function getIdComment()
+    public function getComment(): Comment
     {
-        return $this->Id_comment;
+        return $this->comment;
     }
 
     /**
-     * Set the value of Id_comment
+     * Set the value of comment
      */
-    public function setIdComment($Id_comment): self
+    public function setComment(Comment $comment): self
     {
-        $this->Id_comment = $Id_comment;
+        $this->comment = $comment;
 
         return $this;
     }
 
-    /**
-     * Get the value of typeName
-     */
-    public function getTypeName()
+    public function transformObjectToArray()
     {
-        return $this->typeName;
-    }
-
-    /**
-     * Set the value of typeName
-     */
-    public function setTypeName($typeName): self
-    {
-        $this->typeName = $typeName;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of levelName
-     */
-    public function getLevelName()
-    {
-        return $this->levelName;
-    }
-
-    /**
-     * Set the value of levelName
-     */
-    public function setLevelName($levelName): self
-    {
-        $this->levelName = $levelName;
-
-        return $this;
+      return get_object_vars($this);
     }
 }

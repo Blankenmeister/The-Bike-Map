@@ -200,96 +200,84 @@
 //         $homeController->displayPage404();
 //       }
 //     }
-    use src\Controllers\RouteController;
-    use src\Controllers\HomeController;
-    use src\Controllers\UserController;
-    
-    $homeController = new HomeController();
-    $userController = new UserController(); // Correction : majuscule pour 'U' dans UserController
-    $routeController = new RouteController();
-    
-    $route = $_SERVER['REDIRECT_URL'] ?? '/';
-    $method = $_SERVER['REQUEST_METHOD'];
-    
-    switch ($route) {
-    
-        case HOME_URL:
-            $homeController->index();
-            break;
-    
-        case HOME_URL . 'mapList':
-            $homeController->displayMapList();
-            break;
-    
-        case HOME_URL . 'mapDetail':
-            $homeController->displayMapDetail();
-            break;
-    
-        case HOME_URL . 'contact':
-            $homeController->displayContact();
-            break;
-    
-        case HOME_URL . 'signIn':
-            if ($method === 'POST') {
-                $userController->treatmentSignInController();
-            } else {
-                $homeController->signIn();
-            }
-            break;
-    
-        case HOME_URL . 'dashboard':
-            if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
-                $userController->displayDashboard();
-            } else {
-                $homeController->signIn();
-            }
-            break;
-    
-        case HOME_URL . 'dashboard/createRoute':
-            if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+use src\Controllers\RouteController;
+use src\Controllers\HomeController;
+use src\Controllers\UserController;
+
+$homeController = new HomeController();
+$userController = new UserController(); // Correction : majuscule pour 'U' dans UserController
+$routeController = new RouteController();
+
+$route = $_SERVER['REDIRECT_URL'] ?? '/';
+$method = $_SERVER['REQUEST_METHOD'];
+
+switch ($route) {
+
+    case HOME_URL:
+        $homeController->index();
+        break;
+
+    case HOME_URL . 'mapList':
+        $homeController->displayMapList();
+        break;
+
+    case HOME_URL . 'mapDetail':
+        $homeController->displayMapDetail();
+        break;
+
+    case HOME_URL . 'contact':
+        $homeController->displayContact();
+        break;
+
+    case HOME_URL . 'signIn':
+        if ($method === 'POST') {
+            $userController->treatmentSignInController();
+        } else {
+            $homeController->signIn();
+        }
+        break;
+
+    case HOME_URL . 'dashboard':
+        if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+            $userController->displayDashboard();
+        } else {
+            $homeController->signIn();
+        }
+        break;
+
+    case HOME_URL . 'dashboard/route/create':
+        if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+            if ($method === 'GET') {
                 $routeController->displayCreateRoute();
+            } else if ($method === 'POST') {
+                    $routeController->addRoute();
             } else {
-                $homeController->signIn();
+                $homeController->displayPage404();
             }
-            break;
+        } else {
+            $homeController->signIn();
+        }
+        break;
 
-
-        case HOME_URL . 'dashboard/routeList':
-            if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
-                $routeController->displayRouteList();
-            } else {
-                $homeController->signIn();
-            }
-            break;
     
-        case HOME_URL . 'dashboard/route/create':
-            if ($method === 'POST' && isset($_SESSION['connecte']) && $_SESSION['connecte']) {
-                if (isset($_POST['action'])) {
-                    switch ($_POST['action']) {
-                        case 'create':
-                            $routeController->addRoute();
-                            break;
-                        default:
-                            // Handle unknown actions
-                            $homeController->displayPage404();
-                            break;
-                    }
-                } else {
-                    // Handle the case where 'action' is not set
-                    $homeController->displayPage404();
-                }
-            }
-            break;
-
-            case HOME_URL . 'signOut':
-    $homeController->signOut();
-    break;
     
-        default:
-            // Si aucune des routes ne correspond, afficher une page 404
-            $homeController->displayPage404();
-            break;
-    }
+    case HOME_URL . 'dashboard/routeList':
+        if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+            $routeController->displayRouteList();
+        } else {
+            $homeController->signIn();
+        }
+        break;
+
+    case HOME_URL . 'signOut':
+        $homeController->signOut();
+        break;
+
+    default:
+        // Si aucune des routes ne correspond, afficher une page 404
+        $homeController->displayPage404();
+        break;
+}
     
 
 

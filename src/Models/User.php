@@ -2,32 +2,32 @@
 
 namespace src\Models;
 
+use DateTime;
 use src\Services\Hydratation;
 
 class User
 {
 
-  private $Id_user;
-  private $last_name;
-  private $first_name;
-  private $email;
-  private $password;
-  private $rgpd;
-  private $Id_role;
-  private $NameRole;
-  private $Id_favourite;
-  private $Id_like;
-  private $Id_comment;
+  private int $Id_user;
+  private string $last_name;
+  private string $first_name;
+  private string $email;
+  private string $password;
+  private DateTime $rgpd;
+  private Role $role;
+  private Favourite $favourite;
+  private Like $like;
+  private Comment $comment;
 
 
   use Hydratation;
 
-
+  
 
   /**
    * Get the value of Id_user
    */
-  public function getIdUser()
+  public function getIdUser(): int
   {
     return $this->Id_user;
   }
@@ -35,7 +35,7 @@ class User
   /**
    * Set the value of Id_user
    */
-  public function setIdUser($Id_user): self
+  public function setIdUser(int $Id_user): self
   {
     $this->Id_user = $Id_user;
 
@@ -45,7 +45,7 @@ class User
   /**
    * Get the value of last_name
    */
-  public function getLastName()
+  public function getLastName(): string
   {
     return $this->last_name;
   }
@@ -53,7 +53,7 @@ class User
   /**
    * Set the value of last_name
    */
-  public function setLastName($last_name): self
+  public function setLastName(string $last_name): self
   {
     $this->last_name = $last_name;
 
@@ -63,7 +63,7 @@ class User
   /**
    * Get the value of first_name
    */
-  public function getFirstName()
+  public function getFirstName(): string
   {
     return $this->first_name;
   }
@@ -71,7 +71,7 @@ class User
   /**
    * Set the value of first_name
    */
-  public function setFirstName($first_name): self
+  public function setFirstName(string $first_name): self
   {
     $this->first_name = $first_name;
 
@@ -79,9 +79,27 @@ class User
   }
 
   /**
+   * Get the value of email
+   */
+  public function getEmail(): string
+  {
+    return $this->email;
+  }
+
+  /**
+   * Set the value of email
+   */
+  public function setEmail(string $email): self
+  {
+    $this->email = $email;
+
+    return $this;
+  }
+
+  /**
    * Get the value of password
    */
-  public function getPassword()
+  public function getPassword(): string
   {
     return $this->password;
   }
@@ -89,7 +107,7 @@ class User
   /**
    * Set the value of password
    */
-  public function setPassword($password): self
+  public function setPassword(string $password): self
   {
     $this->password = $password;
 
@@ -99,7 +117,7 @@ class User
   /**
    * Get the value of rgpd
    */
-  public function getRgpd()
+  public function getRgpd(): DateTime
   {
     return $this->rgpd;
   }
@@ -107,7 +125,7 @@ class User
   /**
    * Set the value of rgpd
    */
-  public function setRgpd($rgpd): self
+  public function setRgpd(DateTime $rgpd): self
   {
     $this->rgpd = $rgpd;
 
@@ -115,117 +133,80 @@ class User
   }
 
   /**
-   * Get the value of email
+   * Get the value of role
    */
-  public function getEmail()
+  public function getRole(): Role
   {
-    return $this->email;
+    return $this->role;
   }
 
   /**
-   * Set the value of email
+   * Set the value of role
    */
-  public function setEmail($email): self
+  public function setRole(Role $role): self
   {
-    $this->email = $email;
+    $this->role = $role;
 
     return $this;
   }
 
   /**
-   * Get the value of Id_role
+   * Get the value of favourite
    */
-  public function getIdRole()
+  public function getFavourite(): Favourite
   {
-    return $this->Id_role;
+    return $this->favourite;
   }
 
   /**
-   * Set the value of Id_role
+   * Set the value of favourite
    */
-  public function setIdRole($Id_role): self
+  public function setFavourite(Favourite $favourite): self
   {
-    $this->Id_role = $Id_role;
+    $this->favourite = $favourite;
 
     return $this;
   }
 
   /**
-   * Get the value of NameRole
+   * Get the value of like
    */
-  public function getNameRole()
+  public function getLike(): Like
   {
-    return $this->NameRole;
+    return $this->like;
   }
 
   /**
-   * Set the value of NameRole
+   * Set the value of like
    */
-  public function setNameRole($NameRole): self
+  public function setLike(Like $like): self
   {
-    $this->NameRole = $NameRole;
+    $this->like = $like;
 
     return $this;
   }
 
   /**
-   * Get the value of Id_favourite
+   * Get the value of comment
    */
-  public function getIdFavourite()
+  public function getComment(): Comment
   {
-    return $this->Id_favourite;
+    return $this->comment;
   }
 
   /**
-   * Set the value of Id_favourite
+   * Set the value of comment
    */
-  public function setIdFavourite($Id_favourite): self
+  public function setComment(Comment $comment): self
   {
-    $this->Id_favourite = $Id_favourite;
+    $this->comment = $comment;
 
     return $this;
   }
-
-  /**
-   * Get the value of Id_like
-   */
-  public function getIdLike()
-  {
-    return $this->Id_like;
-  }
-
-  /**
-   * Set the value of Id_like
-   */
-  public function setIdLike($Id_like): self
-  {
-    $this->Id_like = $Id_like;
-
-    return $this;
-  }
-
-  /**
-   * Get the value of Id_comment
-   */
-  public function getIdComment()
-  {
-    return $this->Id_comment;
-  }
-
-  /**
-   * Set the value of Id_comment
-   */
-  public function setIdComment($Id_comment): self
-  {
-    $this->Id_comment = $Id_comment;
-
-    return $this;
-  }
-
-
 
   public function transformObjectToArray()
   {
     return get_object_vars($this);
   }
+
 }
