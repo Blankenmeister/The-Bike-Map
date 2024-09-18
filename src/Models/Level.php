@@ -7,8 +7,8 @@ use src\Services\Hydratation;
 
 class Level {
     
-    private int $Id_level;
-    private string $name;
+    private ?int $Id_level = null;
+    private ?string $name = null;
 
 
     use Hydratation;
@@ -18,7 +18,7 @@ class Level {
     /**
      * Get the value of Id_level
      */
-    public function getIdLevel(): int
+    public function getIdLevel(): ?int
     {
         return $this->Id_level;
     }
@@ -36,7 +36,7 @@ class Level {
     /**
      * Get the value of name
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }

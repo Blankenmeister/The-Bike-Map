@@ -48,7 +48,7 @@ class RouteController {
 
             // Vérifiez que l'utilisateur a les droits d'admin
             $user = new User($_SESSION['user']);
-            if ($user->getNameRole() !== 'Admin') {
+            if ($user->getRole()->getName() !== 'Admin') {
                 throw new Exception('Cette action est réservée aux administrateurs.');
             }
 

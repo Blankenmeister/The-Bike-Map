@@ -8,9 +8,9 @@
 
     <div class="role-content">
         <?php
-        if ($user->getNameRole() === 'Admin') {
+        if ($user->getRole()->getName() === 'Admin') {
             include_once __DIR__ . '/admin.php';
-        } elseif ($user->getNameRole() === 'User') {
+        } elseif ($user->getRole()->getName() === 'User') {
             include_once __DIR__ . '/../User/user.php';
         } else {
             echo '<div class="alert alert-warning">Erreur - veuillez vous déconnecter</div>';

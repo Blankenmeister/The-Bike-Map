@@ -7,9 +7,9 @@ use src\Services\Hydratation;
 
 class Role {
     
-    private int $Id_role;
-    private string $name;
-    private User $user;
+    private ?int $Id_role = null;
+    private ?string $name = null;
+    private ?User $user = null;
 
 
     use Hydratation;
@@ -19,7 +19,7 @@ class Role {
     /**
      * Get the value of Id_role
      */
-    public function getIdRole(): int
+    public function getIdRole(): ?int
     {
         return $this->Id_role;
     }
@@ -37,7 +37,7 @@ class Role {
     /**
      * Get the value of name
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -55,7 +55,7 @@ class Role {
     /**
      * Get the value of user
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }

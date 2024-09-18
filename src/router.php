@@ -229,7 +229,7 @@ switch ($route) {
         $homeController->displayContact();
         break;
 
-    case HOME_URL . 'signIn':
+    case HOME_URL . 'signin':
         if ($method === 'POST') {
             $userController->treatmentSignInController();
         } else {
@@ -238,6 +238,7 @@ switch ($route) {
         break;
 
     case HOME_URL . 'dashboard':
+        // var_dump($_SESSION);
         if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
             $userController->displayDashboard();
         } else {
@@ -269,7 +270,7 @@ switch ($route) {
         }
         break;
 
-    case HOME_URL . 'signOut':
+    case HOME_URL . 'signout':
         $homeController->signOut();
         break;
 

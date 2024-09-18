@@ -8,26 +8,26 @@ use src\Services\Hydratation;
 class User
 {
 
-  private int $Id_user;
-  private string $last_name;
-  private string $first_name;
-  private string $email;
-  private string $password;
-  private DateTime $rgpd;
-  private Role $role;
-  private Favourite $favourite;
-  private Like $like;
-  private Comment $comment;
+  private ?int $Id_user = null;
+  private ?string $last_name = null;
+  private ?string $email = null;
+  private ?string $first_name = null;
+  private ?string $password = null;
+  private null|string|DateTime $rgpd = null;
+  private ?Role $role = null;
+  private ?Favourite $favourite = null;
+  private ?Like $like = null;
+  private ?Comment $comment = null;
 
 
   use Hydratation;
 
-  
+
 
   /**
    * Get the value of Id_user
    */
-  public function getIdUser(): int
+  public function getIdUser(): ?int
   {
     return $this->Id_user;
   }
@@ -45,7 +45,7 @@ class User
   /**
    * Get the value of last_name
    */
-  public function getLastName(): string
+  public function getLastName(): ?string
   {
     return $this->last_name;
   }
@@ -63,7 +63,7 @@ class User
   /**
    * Get the value of first_name
    */
-  public function getFirstName(): string
+  public function getFirstName(): ?string
   {
     return $this->first_name;
   }
@@ -81,7 +81,7 @@ class User
   /**
    * Get the value of email
    */
-  public function getEmail(): string
+  public function getEmail(): ?string
   {
     return $this->email;
   }
@@ -99,7 +99,7 @@ class User
   /**
    * Get the value of password
    */
-  public function getPassword(): string
+  public function getPassword(): ?string
   {
     return $this->password;
   }
@@ -117,7 +117,7 @@ class User
   /**
    * Get the value of rgpd
    */
-  public function getRgpd(): DateTime
+  public function getRgpd(): ?DateTime
   {
     return $this->rgpd;
   }
@@ -125,9 +125,13 @@ class User
   /**
    * Set the value of rgpd
    */
-  public function setRgpd(DateTime $rgpd): self
+  public function setRgpd(DateTime|string $rgpd): self
   {
-    $this->rgpd = $rgpd;
+    if (is_string($rgpd)) {
+      $this->rgpd = new DateTime($rgpd);
+    } else {
+      $this->rgpd = $rgpd;
+    }
 
     return $this;
   }
@@ -135,7 +139,7 @@ class User
   /**
    * Get the value of role
    */
-  public function getRole(): Role
+  public function getRole(): ?Role
   {
     return $this->role;
   }
@@ -153,7 +157,7 @@ class User
   /**
    * Get the value of favourite
    */
-  public function getFavourite(): Favourite
+  public function getFavourite(): ?Favourite
   {
     return $this->favourite;
   }
@@ -161,7 +165,7 @@ class User
   /**
    * Set the value of favourite
    */
-  public function setFavourite(Favourite $favourite): self
+  public function setFavourite(?Favourite $favourite): self
   {
     $this->favourite = $favourite;
 
@@ -171,7 +175,7 @@ class User
   /**
    * Get the value of like
    */
-  public function getLike(): Like
+  public function getLike(): ?Like
   {
     return $this->like;
   }
@@ -179,7 +183,7 @@ class User
   /**
    * Set the value of like
    */
-  public function setLike(Like $like): self
+  public function setLike(?Like $like): self
   {
     $this->like = $like;
 
@@ -189,7 +193,7 @@ class User
   /**
    * Get the value of comment
    */
-  public function getComment(): Comment
+  public function getComment(): ?Comment
   {
     return $this->comment;
   }
@@ -197,9 +201,38 @@ class User
   /**
    * Set the value of comment
    */
-  public function setComment(Comment $comment): self
+  public function setComment(?Comment $comment): self
   {
     $this->comment = $comment;
+
+    return $this;
+  }
+
+ 
+
+  public function setNameRole($nameRole): self
+  {
+    if (!$this->getRole()) {
+      $role = new Role(['name' => $nameRole]);
+      $this->setRole($role);
+    } else {
+      $role = $this->getRole();
+      $role->setName($nameRole);
+      $this->setRole($role);
+    }
+    return $this;
+  }
+
+  public function setIdRole($IdRole): self
+  {
+    if (!$this->getRole()) {
+      $role = new Role(['id_role' => $IdRole]);
+      $this->setRole($role);
+    } else {
+      $role = $this->getRole();
+      $role->setIdRole($IdRole);
+      $this->setRole($role);
+    }
 
     return $this;
   }
@@ -208,5 +241,5 @@ class User
   {
     return get_object_vars($this);
   }
-
+  
 }

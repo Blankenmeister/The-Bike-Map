@@ -39,5 +39,12 @@
 <body>
 
 
-<div class="headerTest">coucou header</div>
+<div class="headerTest">
+
+<a href="<?= Domain . HOME_URL ?>signout">Déconnexion</a>
+<a href="<?= Domain . HOME_URL ?>signin">Connexion</a>
+
+
+
+</div>
 

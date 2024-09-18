@@ -19,7 +19,10 @@ trait Hydratation
         $setter .= ucfirst(strtolower($part));
       }
 
-      $this->$setter($value);
+      if (method_exists($this, $setter)) 
+      {
+        $this->$setter($value);
+      }
     }
   }
 

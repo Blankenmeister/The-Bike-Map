@@ -7,9 +7,8 @@ use src\Services\Hydratation;
 
 class Favourite {
     
-    private int $Id_favourite;
-    private User $user;
-    private Route $route;
+    private ?User $user = null;
+    private ?Route $route = null;
 
 
 
@@ -18,27 +17,9 @@ class Favourite {
 
 
     /**
-     * Get the value of Id_favourite
-     */
-    public function getIdFavourite(): int
-    {
-        return $this->Id_favourite;
-    }
-
-    /**
-     * Set the value of Id_favourite
-     */
-    public function setIdFavourite(int $Id_favourite): self
-    {
-        $this->Id_favourite = $Id_favourite;
-
-        return $this;
-    }
-
-    /**
      * Get the value of user
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
@@ -56,7 +37,7 @@ class Favourite {
     /**
      * Get the value of route
      */
-    public function getRoute(): Route
+    public function getRoute(): ?Route
     {
         return $this->route;
     }

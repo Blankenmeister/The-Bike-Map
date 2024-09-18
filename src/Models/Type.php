@@ -7,8 +7,8 @@ use src\Services\Hydratation;
 
 class Type {
     
-    private int $Id_type;
-    private string $name;
+    private ?int $Id_type = null;
+    private ?string $name = null;
     
 
     use Hydratation;
@@ -17,7 +17,7 @@ class Type {
     /**
      * Get the value of Id_type
      */
-    public function getIdType(): int
+    public function getIdType(): ?int
     {
         return $this->Id_type;
     }
@@ -35,7 +35,7 @@ class Type {
     /**
      * Get the value of name
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -56,5 +56,5 @@ class Type {
       return get_object_vars($this);
     }
 
-    
+
 }

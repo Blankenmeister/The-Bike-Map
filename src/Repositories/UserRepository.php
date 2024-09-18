@@ -6,7 +6,7 @@ use Exception;
 use src\Models\User;
 use PDO;
 use PDOException;
-use src\Models\Database;
+use src\Services\Database;
 
 class UserRepository
 {
@@ -32,8 +32,8 @@ class UserRepository
           bike_user.email, 
           bike_user.password, 
           bike_user.rgpd, 
-          bike_role.name AS NameRole,
-          bike_role.id_role AS IdRole FROM bike_user
+          bike_role.name AS name_role,
+          bike_role.id_role AS id_role FROM bike_user
           LEFT JOIN bike_role ON bike_user.id_role = bike_role.id_role 
           WHERE bike_user.email = :email;";
 
@@ -42,10 +42,6 @@ class UserRepository
       $statement->execute([':email' => $email]);
       $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
       $user = $statement->fetch();
-      //   echo "<pre>";
-      //     var_dump($user);
-      //     echo "</pre>";
-      // die();
 
       return $user;
     } catch (PDOException $e) {

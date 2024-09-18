@@ -7,10 +7,9 @@ use src\Services\Hydratation;
 
 class Like {
     
-    private int $Id_like;
-    private string $vote;
-    private User $user;
-    private Route $route;
+    private ?int $Id_like = null;
+    private ?User $user = null;
+    private ?Route $route = null;
 
 
 
@@ -20,7 +19,7 @@ class Like {
     /**
      * Get the value of Id_like
      */
-    public function getIdLike(): int
+    public function getIdLike(): ?int
     {
         return $this->Id_like;
     }
@@ -36,27 +35,9 @@ class Like {
     }
 
     /**
-     * Get the value of vote
-     */
-    public function getVote(): string
-    {
-        return $this->vote;
-    }
-
-    /**
-     * Set the value of vote
-     */
-    public function setVote(string $vote): self
-    {
-        $this->vote = $vote;
-
-        return $this;
-    }
-
-    /**
      * Get the value of user
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
@@ -74,7 +55,7 @@ class Like {
     /**
      * Get the value of route
      */
-    public function getRoute(): Route
+    public function getRoute(): ?Route
     {
         return $this->route;
     }
@@ -88,5 +69,5 @@ class Like {
 
         return $this;
     }
-    
+
 }

@@ -7,31 +7,31 @@ use src\Services\Hydratation;
 
 class Route {
     
-    private int $Id_route;
-    private string $name;
-    private string $description;
-    private DateTime $duration;
-    private float $distance;
-    private int $elevation;
-    private int $altitude;
-    private bool $circuit;
-    private DateTime $creation_date;
-    private string $map_link;
-    private Type $type;
-    private Level $level;
-    private User $user;
-    private Favourite $favourite;
-    private Like $like;
-    private Comment $comment;
+    private ?int $Id_route = null;
+    private ?string $name = null;
+    private ?string $description = null;
+    private null|DateTime|string $duration = null;
+    private ?float $distance = null;
+    private ?int $elevation = null;
+    private ?int $altitude = null;
+    private ?bool $circuit = null;
+    private null|DateTime|string $creation_date = null;
+    private ?string $map_link = null;
+    private ?Type $type = null;
+    private ?Level $level = null;
+    private ?User $user = null;
+    private ?Favourite $favourite = null;
+    private ?Like $like = null;
+    private ?Comment $comment = null;
 
     use Hydratation;
 
-  
+
 
     /**
      * Get the value of Id_route
      */
-    public function getIdRoute(): int
+    public function getIdRoute(): ?int
     {
         return $this->Id_route;
     }
@@ -39,7 +39,7 @@ class Route {
     /**
      * Set the value of Id_route
      */
-    public function setIdRoute(int $Id_route): self
+    public function setIdRoute(?int $Id_route): self
     {
         $this->Id_route = $Id_route;
 
@@ -49,7 +49,7 @@ class Route {
     /**
      * Get the value of name
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -57,7 +57,7 @@ class Route {
     /**
      * Set the value of name
      */
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -67,7 +67,7 @@ class Route {
     /**
      * Get the value of description
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -75,7 +75,7 @@ class Route {
     /**
      * Set the value of description
      */
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -85,7 +85,7 @@ class Route {
     /**
      * Get the value of duration
      */
-    public function getDuration(): DateTime
+    public function getDuration(): ?DateTime
     {
         return $this->duration;
     }
@@ -93,17 +93,21 @@ class Route {
     /**
      * Set the value of duration
      */
-    public function setDuration(DateTime $duration): self
+    public function setDuration(DateTime|string $duration): self
     {
+      if (is_string($duration)) {
+        $this->duration = new DateTime($duration);
+      } else {
         $this->duration = $duration;
-
-        return $this;
+      }
+  
+      return $this;
     }
 
     /**
      * Get the value of distance
      */
-    public function getDistance(): float
+    public function getDistance(): ?float
     {
         return $this->distance;
     }
@@ -111,7 +115,7 @@ class Route {
     /**
      * Set the value of distance
      */
-    public function setDistance(float $distance): self
+    public function setDistance(?float $distance): self
     {
         $this->distance = $distance;
 
@@ -121,7 +125,7 @@ class Route {
     /**
      * Get the value of elevation
      */
-    public function getElevation(): int
+    public function getElevation(): ?int
     {
         return $this->elevation;
     }
@@ -129,7 +133,7 @@ class Route {
     /**
      * Set the value of elevation
      */
-    public function setElevation(int $elevation): self
+    public function setElevation(?int $elevation): self
     {
         $this->elevation = $elevation;
 
@@ -139,7 +143,7 @@ class Route {
     /**
      * Get the value of altitude
      */
-    public function getAltitude(): int
+    public function getAltitude(): ?int
     {
         return $this->altitude;
     }
@@ -147,7 +151,7 @@ class Route {
     /**
      * Set the value of altitude
      */
-    public function setAltitude(int $altitude): self
+    public function setAltitude(?int $altitude): self
     {
         $this->altitude = $altitude;
 
@@ -157,20 +161,20 @@ class Route {
     /**
      * Get the value of circuit
      */
-    public function isCircuit(): bool
+    public function isCircuit(): ?bool
     {
         return $this->circuit;
     }
 
-    public function getCircuit(): bool
+    public function getCircuit(): ?bool
     {
-        return $this->circuit;
+       return $this->circuit;
     }
 
     /**
      * Set the value of circuit
      */
-    public function setCircuit(bool $circuit): self
+    public function setCircuit(?bool $circuit): self
     {
         $this->circuit = $circuit;
 
@@ -180,7 +184,7 @@ class Route {
     /**
      * Get the value of creation_date
      */
-    public function getCreationDate(): DateTime
+    public function getCreationDate(): ?DateTime
     {
         return $this->creation_date;
     }
@@ -188,17 +192,21 @@ class Route {
     /**
      * Set the value of creation_date
      */
-    public function setCreationDate(DateTime $creation_date): self
+    public function setCreationDate(DateTime|string $creationDate): self
     {
-        $this->creation_date = $creation_date;
-
-        return $this;
+      if (is_string($creationDate)) {
+        $this->creationDate = new DateTime($creationDate);
+      } else {
+        $this->creationDate = $creationDate;
+      }
+  
+      return $this;
     }
 
     /**
      * Get the value of map_link
      */
-    public function getMapLink(): string
+    public function getMapLink(): ?string
     {
         return $this->map_link;
     }
@@ -206,7 +214,7 @@ class Route {
     /**
      * Set the value of map_link
      */
-    public function setMapLink(string $map_link): self
+    public function setMapLink(?string $map_link): self
     {
         $this->map_link = $map_link;
 
@@ -216,7 +224,7 @@ class Route {
     /**
      * Get the value of type
      */
-    public function getType(): Type
+    public function getType(): ?Type
     {
         return $this->type;
     }
@@ -224,7 +232,7 @@ class Route {
     /**
      * Set the value of type
      */
-    public function setType(Type $type): self
+    public function setType(?Type $type): self
     {
         $this->type = $type;
 
@@ -234,7 +242,7 @@ class Route {
     /**
      * Get the value of level
      */
-    public function getLevel(): Level
+    public function getLevel(): ?Level
     {
         return $this->level;
     }
@@ -242,7 +250,7 @@ class Route {
     /**
      * Set the value of level
      */
-    public function setLevel(Level $level): self
+    public function setLevel(?Level $level): self
     {
         $this->level = $level;
 
@@ -252,7 +260,7 @@ class Route {
     /**
      * Get the value of user
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
@@ -260,7 +268,7 @@ class Route {
     /**
      * Set the value of user
      */
-    public function setUser(User $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 
@@ -270,7 +278,7 @@ class Route {
     /**
      * Get the value of favourite
      */
-    public function getFavourite(): Favourite
+    public function getFavourite(): ?Favourite
     {
         return $this->favourite;
     }
@@ -278,7 +286,7 @@ class Route {
     /**
      * Set the value of favourite
      */
-    public function setFavourite(Favourite $favourite): self
+    public function setFavourite(?Favourite $favourite): self
     {
         $this->favourite = $favourite;
 
@@ -288,7 +296,7 @@ class Route {
     /**
      * Get the value of like
      */
-    public function getLike(): Like
+    public function getLike(): ?Like
     {
         return $this->like;
     }
@@ -296,7 +304,7 @@ class Route {
     /**
      * Set the value of like
      */
-    public function setLike(Like $like): self
+    public function setLike(?Like $like): self
     {
         $this->like = $like;
 
@@ -306,7 +314,7 @@ class Route {
     /**
      * Get the value of comment
      */
-    public function getComment(): Comment
+    public function getComment(): ?Comment
     {
         return $this->comment;
     }
@@ -314,12 +322,13 @@ class Route {
     /**
      * Set the value of comment
      */
-    public function setComment(Comment $comment): self
+    public function setComment(?Comment $comment): self
     {
         $this->comment = $comment;
 
         return $this;
     }
+
 
     public function transformObjectToArray()
     {

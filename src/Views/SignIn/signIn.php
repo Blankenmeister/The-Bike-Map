@@ -24,7 +24,7 @@
       <img class="logo-connexion" src="<?= Domain . HOME_URL . 'assets/image/logoBike.png'; ?>" alt="logotype du site internet" />
 
 
-      <form action="<?= Domain . HOME_URL . 'signIn' ?>" method="POST" id="formConnexion" class="form-connexion">
+      <form action="<?= Domain . HOME_URL . 'signin' ?>" method="POST" id="formConnexion" class="form-connexion">
 
         <input type="email" id="emailSignIn" name="email" class="mb-3 form-control form-control-sm email-connexion" aria-describedby="emailHelp" placeholder="Enter your email" required autocomplete="email" />
 
