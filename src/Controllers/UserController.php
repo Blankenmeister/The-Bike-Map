@@ -33,7 +33,9 @@ class userController
       $_SESSION['connecte'] = true;
       $_SESSION['user'] = $user->transformObjectToArray();
 
-      // var_dump($_SESSION);
+      // echo '<pre>';
+      // var_dump($_SESSION['user']);
+      // echo '</pre>';
       // die;
       header('Location: ' . HOME_URL . 'dashboard?success=Vous êtes connectés avec succès.');
       exit();
@@ -49,8 +51,12 @@ class userController
   public function displayDashboard()
   {
     $user = new User($_SESSION['user']);
-    var_dump($_SESSION['user']);
-    die;
+    
+    
+    // echo '<pre>';
+    // var_dump($role);
+    // echo'</pre>';
+    // die;
 
     include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
   }

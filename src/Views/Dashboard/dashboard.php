@@ -8,6 +8,11 @@
 
     <div class="role-content">
         <?php
+
+    //     echo '<pre>';
+    //   var_dump($user->getRole()->getName());
+    //   echo '</pre>';
+    //   die;
         if ($user->getRole()->getName() === 'Admin') {
             include_once __DIR__ . '/admin.php';
         } elseif ($user->getRole()->getName() === 'User') {
