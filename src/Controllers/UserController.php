@@ -32,6 +32,9 @@ class userController
 
       $_SESSION['connecte'] = true;
       $_SESSION['user'] = $user->transformObjectToArray();
+      // Ajouter le role dans la session
+
+
 
       // echo '<pre>';
       // var_dump($_SESSION['user']);
@@ -51,10 +54,11 @@ class userController
   public function displayDashboard()
   {
     $user = new User($_SESSION['user']);
-    
+    // $nameRole = $user->getRole()->getName();
+
     
     // echo '<pre>';
-    // var_dump($role);
+    // var_dump($user);
     // echo'</pre>';
     // die;
 

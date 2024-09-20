@@ -239,7 +239,10 @@ class User
 
   public function transformObjectToArray()
   {
-    return get_object_vars($this);
+    $arrayUser = get_object_vars($this);
+    $arrayRole = $this->getRole()->transformObjectToArray();
+    $arrayUser['role'] = $arrayRole;
+    return $arrayUser;
   }
   
 }

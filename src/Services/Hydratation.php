@@ -2,6 +2,8 @@
 
 namespace src\Services;
 
+use src\Models\Role;
+
 trait Hydratation
 {
 
@@ -13,10 +15,26 @@ trait Hydratation
   private function hydrate(array $data): void
   {
     foreach ($data as $key => $value) {
+      
+      
       $parts = explode('_', $key);
+      // var_dump($parts);
       $setter = 'set';
       foreach ($parts as $part) {
-        $setter .= ucfirst(strtolower($part));
+        if ($part =='role') {
+          // var_dump($value);
+          $role = new Role();
+          $role->setIdRole($value['Id_role']);
+          $role->setName($value['name']);
+          $this->setRole($role);
+          // var_dump($role);
+          
+
+        }
+        else {
+          $setter.= ucfirst(strtolower($part));
+        }
+       
       }
 
       if (method_exists($this, $setter)) 

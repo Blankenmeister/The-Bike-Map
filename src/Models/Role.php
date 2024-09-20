@@ -69,4 +69,9 @@ class Role {
 
         return $this;
     }
+
+    public function transformObjectToArray()
+  {
+    return get_object_vars($this);
+  }
 }

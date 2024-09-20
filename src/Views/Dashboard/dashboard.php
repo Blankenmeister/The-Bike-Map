@@ -7,10 +7,11 @@
     </div>
 
     <div class="role-content">
+        
         <?php
 
     //     echo '<pre>';
-    //   var_dump($user->getRole()->getName());
+    //   var_dump($user);
     //   echo '</pre>';
     //   die;
         if ($user->getRole()->getName() === 'Admin') {
