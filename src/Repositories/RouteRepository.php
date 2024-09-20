@@ -49,10 +49,10 @@ class RouteRepository
   LEFT JOIN bike_like ON bike_route.Id_route = bike_like.Id_route
   LEFT JOIN bike_level ON bike_route.Id_level = bike_level.Id_level;";
 
-    return  $this->DB->query($sql)->fetchAll(PDO::FETCH_CLASS, [Route::class,Level::class]);
+    return  $this->DB->query($sql)->fetchAll(PDO::FETCH_CLASS, Route::class);
 
     // var_dump($sql);
-    // die();
+    
   }
 
   public function CreateRoute(Route $route)

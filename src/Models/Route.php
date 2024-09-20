@@ -85,7 +85,7 @@ class Route {
     /**
      * Get the value of duration
      */
-    public function getDuration(): ?DateTime
+    public function getDuration(): DateTime
     {
         return $this->duration;
     }
@@ -184,9 +184,10 @@ class Route {
     /**
      * Get the value of creation_date
      */
-    public function getCreationDate(): ?DateTime
+    public function getCreationDate(): DateTime
     {
-        return $this->creation_date;
+        return $this->creation_date = new DateTime();
+        
     }
 
     /**
@@ -196,12 +197,13 @@ class Route {
     {
       if (is_string($creationDate)) {
         $this->creationDate = new DateTime($creationDate);
-      } else {
-        $this->creationDate = $creationDate;
+      // } else {
+      //   $this->creationDate = $creationDate;
+      // }
       }
-  
       return $this;
     }
+  
 
     /**
      * Get the value of map_link

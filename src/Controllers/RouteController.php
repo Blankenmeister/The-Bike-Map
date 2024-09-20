@@ -77,7 +77,6 @@ class RouteController {
 
     public function displayRouteList()
     {
-        // $route = new Route(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
         $routeRepository = new RouteRepository();
         // Récupérer tous les parcours
         $routes = $routeRepository->getAllRoutes();

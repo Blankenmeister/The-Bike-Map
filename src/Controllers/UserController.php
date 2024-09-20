@@ -30,16 +30,18 @@ class userController
         die;
       }
 
+      echo '<pre>';
+      var_dump($user);
+      echo '</pre>';
+      die;
+
       $_SESSION['connecte'] = true;
       $_SESSION['user'] = $user->transformObjectToArray();
       // Ajouter le role dans la session
 
 
 
-      // echo '<pre>';
-      // var_dump($_SESSION['user']);
-      // echo '</pre>';
-      // die;
+      
       header('Location: ' . HOME_URL . 'dashboard?success=Vous êtes connectés avec succès.');
       exit();
       // include 'dashboard avec une $success message'; puis dans la vue : echo $success;
@@ -57,10 +59,10 @@ class userController
     // $nameRole = $user->getRole()->getName();
 
     
-    // echo '<pre>';
-    // var_dump($user);
-    // echo'</pre>';
-    // die;
+    echo '<pre>';
+    var_dump($_SESSION['user']);
+    echo'</pre>';
+    die;
 
     include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
   }

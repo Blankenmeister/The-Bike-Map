@@ -12,6 +12,41 @@ trait Hydratation
     $this->hydrate($data);
   }
 
+  // private function hydrate(array $data): void
+  // {
+  //   foreach ($data as $key => $value) {
+      
+      
+  //     $parts = explode('_', $key);
+  //     // var_dump($parts);
+  //     $setter = 'set';
+  //     foreach ($parts as $part) {
+  //       if ($part =='role') {
+  //         var_dump($value);
+  //         $role = new Role();
+          
+  //         $role->setIdRole($value['Id_role']);
+  //         $role->setName($value['name']);
+  //         $this->setRole($role);
+  //         // var_dump($role);
+          
+
+  //       }
+  //       else {
+  //         $setter.= ucfirst(strtolower($part));
+  //       }
+       
+  //     }
+
+  //     if (method_exists($this, $setter)) 
+  //     {
+  //       $this->$setter($value);
+  //     }
+  //   }
+  // }
+
+
+
   private function hydrate(array $data): void
   {
     foreach ($data as $key => $value) {
@@ -23,11 +58,12 @@ trait Hydratation
       foreach ($parts as $part) {
         if ($part =='role') {
           // var_dump($value);
-          $role = new Role();
-          $role->setIdRole($value['Id_role']);
-          $role->setName($value['name']);
-          $this->setRole($role);
+          // $role = new Role();
+        
+          // $role->setName($value);
+          // $this->setRole($role);
           // var_dump($role);
+          // die;
           
 
         }
@@ -43,6 +79,10 @@ trait Hydratation
       }
     }
   }
+
+ 
+
+ 
 
   public function __set($name, $value)
   {
