@@ -2,19 +2,15 @@
 
 namespace src\Models;
 
-
 use src\Services\Hydratation;
 
-class Role {
-    
+class Role
+{
     private ?int $Id_role = null;
     private ?string $name = null;
     private ?User $user = null;
 
-
     use Hydratation;
-
-
 
     /**
      * Get the value of Id_role
@@ -69,9 +65,4 @@ class Role {
 
         return $this;
     }
-
-    public function transformObjectToArray()
-  {
-    return get_object_vars($this);
-  }
 }

@@ -5,6 +5,9 @@ CREATE TABLE bike_role(
 );
 ALTER TABLE bike_role ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+INSERT INTO bike_role (name) VALUES ('Admin');
+INSERT INTO bike_role (name) VALUES ('User');
+
 CREATE TABLE bike_level(
    Id_level INT AUTO_INCREMENT,
    name VARCHAR(100)  NOT NULL,

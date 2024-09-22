@@ -7,8 +7,7 @@ use src\Services\Hydratation;
 
 class User
 {
-
-  private ?int $Id_user = null;
+  private ?int $id_user = null;
   private ?string $last_name = null;
   private ?string $email = null;
   private ?string $first_name = null;
@@ -19,25 +18,22 @@ class User
   private ?Like $like = null;
   private ?Comment $comment = null;
 
-
   use Hydratation;
 
-
-
   /**
-   * Get the value of Id_user
+   * Get the value of id_user
    */
   public function getIdUser(): ?int
   {
-    return $this->Id_user;
+    return $this->id_user;
   }
 
   /**
-   * Set the value of Id_user
+   * Set the value of id_user
    */
-  public function setIdUser(int $Id_user): self
+  public function setIdUser(int $id_user): self
   {
-    $this->Id_user = $Id_user;
+    $this->id_user = $id_user;
 
     return $this;
   }
@@ -208,8 +204,6 @@ class User
     return $this;
   }
 
- 
-
   public function setNameRole($nameRole): self
   {
     if (!$this->getRole()) {
@@ -236,13 +230,4 @@ class User
 
     return $this;
   }
-
-  public function transformObjectToArray()
-  {
-    $arrayUser = get_object_vars($this);
-    $arrayRole = $this->getRole()->transformObjectToArray();
-    $arrayUser['role'] = $arrayRole;
-    return $arrayUser;
-  }
-  
 }
