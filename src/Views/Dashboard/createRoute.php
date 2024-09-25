@@ -54,8 +54,8 @@
 
   <div class="col-lg-4 col-md-6">
     <div class="mb-3 d-flex flex-row justify-content-between">
-      <label for="Id_type" class="form-label">Type de pratique :</label>
-      <select id="Id_type" name="Id_type" class="form-select add-type" required>
+      <label for="type" class="form-label">Type de pratique :</label>
+      <select id="type" name="Id_type" class="form-select add-type" required>
         <option value="1">Route</option>
         <option value="2">Gravel</option>
         <option value="3">VTT</option>
@@ -63,8 +63,8 @@
     </div>
 
     <div class="mb-3 d-flex flex-row justify-content-between">
-      <label for="Id_level" class="form-label">Niveau :</label>
-      <select id="Id_level" name="Id_level" class="form-select add-level" required>
+      <label for="level" class="form-label">Niveau :</label>
+      <select id="level" name="Id_level" class="form-select add-level" required>
         <option value="1">Familial</option>
         <option value="2">Sportif</option>
         <option value="3">Expert</option>

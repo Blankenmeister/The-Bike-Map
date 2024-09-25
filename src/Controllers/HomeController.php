@@ -134,7 +134,7 @@ class HomeController
   public function signOut()
   {
     session_destroy();
-    header('Location: ' . HOME_URL . 'signIn?success=Vous êtes deconnectés avec succès.');
+    header('Location: ' . HOME_URL . 'signin?success=Vous êtes deconnectés avec succès.');
   }
 
   public function displayPage404()

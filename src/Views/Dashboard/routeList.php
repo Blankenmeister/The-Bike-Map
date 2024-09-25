@@ -4,19 +4,39 @@
 <h1>Liste des parcours</h1>
 
 
-  <?php
+<?php
 
-  foreach ($routes as $route) { ?>
-    <div class="routeCard">
-      <div class="titre"><?= $route->getName() ?>
-      </div>
-      <p>Durée : <?= $route->getDuration() ?></p>
-      <p>Distance : <?= $route->getDistance() ?></p>
+foreach ($routes as $route) { ?>
+  <div class="routeCard">
+    <div class="titre"><?= $route->getName() ?>
+    </div>
 
-      
+    <p>Durée : <?php
+
+                $durationString = $route->getDuration();
+                try {
+                  $duration = new DateTime($durationString);
+                  echo $duration->format('H:i');
+                } catch (Exception $e) {
+                  echo "Durée non valide";
+                }
+                ?></p>
+
+    <p>Création date : <?php
+                        $creationDateString = $route->getCreationDate();
+                        try {
+                          $creationDate = new DateTime($creationDateString);
+                          echo $creationDate->format('d/m/Y'); // Affiche sous format jour/mois/année
+                        } catch (Exception $e) {
+                          echo "Date non valide"; // Si la date n'est pas valide
+                        }
+                        ?></p>
+
+
+
   <?php } ?>
 
-</div>
+  </div>
 
 
 
@@ -26,4 +46,4 @@
 
 
 
-<?php include_once __DIR__ . '/../Includes/footer.php'; ?>
+  <?php include_once __DIR__ . '/../Includes/footer.php'; ?>

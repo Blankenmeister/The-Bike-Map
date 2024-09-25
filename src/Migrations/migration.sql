@@ -58,7 +58,7 @@ ALTER TABLE bike_route ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_c
 
 CREATE TABLE bike_comment(
    Id_comment INT AUTO_INCREMENT,
-   text VARCHAR(250) ,
+   text VARCHAR(250),
    creation_date DATETIME,
    Id_route INT NOT NULL,
    Id_user INT NOT NULL,

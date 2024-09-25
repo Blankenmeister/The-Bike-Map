@@ -24,35 +24,35 @@ class RouteRepository
 
 
 
-  public function getAllRoutes()
-  {
-
-    $sql = "SELECT bike_route.Id_route, 
-  bike_route.name, 
-  bike_route.description, 
-  bike_route.duration, 
-  bike_route.distance, 
-  bike_route.elevation, 
-  bike_route.altitude, 
-  bike_route.circuit, 
-  bike_route.creation_date, 
-  bike_route.map_link,
-  bike_route.Id_User AS Id_user,
-  bike_level.Id_level AS Id_level,
-  bike_level.name AS levelName,
-  bike_type.Id_type AS Id_type,
-  bike_type.name AS typeName
-  FROM bike_route 
-  LEFT JOIN bike_type ON bike_route.Id_type = bike_type.Id_type
-  LEFT JOIN bike_user ON bike_route.Id_User = bike_user.Id_user
-  LEFT JOIN bike_favourite ON bike_route.Id_route = bike_favourite.Id_route
-  LEFT JOIN bike_like ON bike_route.Id_route = bike_like.Id_route
-  LEFT JOIN bike_level ON bike_route.Id_level = bike_level.Id_level;";
-
-    return  $this->DB->query($sql)->fetchAll(PDO::FETCH_CLASS, Route::class);
-
-    // var_dump($sql);
+  public function getAllRoutes() {
     
+    $sql = "SELECT bike_route.Id_route, 
+    bike_route.name, 
+    bike_route.description, 
+    bike_route.duration, 
+    bike_route.distance, 
+    bike_route.elevation, 
+    bike_route.altitude, 
+    bike_route.circuit, 
+    bike_route.creation_date, 
+    bike_route.map_link,
+    bike_route.Id_User AS Id_user,
+    bike_level.Id_level AS Id_level,
+    bike_level.name AS levelName,
+    bike_type.Id_type AS Id_type,
+    bike_type.name AS typeName
+    FROM bike_route 
+    LEFT JOIN bike_type ON bike_route.Id_type = bike_type.Id_type
+    LEFT JOIN bike_user ON bike_route.Id_User = bike_user.Id_user
+    LEFT JOIN bike_favourite ON bike_route.Id_route = bike_favourite.Id_route
+    LEFT JOIN bike_like ON bike_route.Id_route = bike_like.Id_route
+    LEFT JOIN bike_level ON bike_route.Id_level = bike_level.Id_level;";
+            
+        $statement = $this->DB->prepare($sql);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_CLASS, Route::class);
+        return $statement->fetchAll();
+        
   }
 
   public function CreateRoute(Route $route)
@@ -65,6 +65,8 @@ class RouteRepository
         
         // Préparation de la requête
         $statement = $this->DB->prepare($sql);
+
+        
 
         // Exécution avec les paramètres
         $statement->execute([
@@ -82,7 +84,7 @@ class RouteRepository
             ':Id_user'         => $route->getUser()->getIdUser()
         ]);
 
-        // Récupérer l'ID de la dernière insertion
+      
         return $this->DB->lastInsertId();
         
     } catch (Exception $e) {
@@ -91,6 +93,7 @@ class RouteRepository
         return false; // ou une autre manière de signaler l'erreur
     }
 }
+
 
 
 

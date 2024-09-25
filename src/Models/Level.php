@@ -52,10 +52,10 @@ class Level {
     }
 
 
-    public function transformObjectToArray()
-    {
-      return get_object_vars($this);
-    }
+    // public function transformObjectToArray()
+    // {
+    //   return get_object_vars($this);
+    // }
 
 
 }

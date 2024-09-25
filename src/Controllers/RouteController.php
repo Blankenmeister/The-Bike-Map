@@ -33,6 +33,8 @@ class RouteController {
                 'circuit' => isset($_POST['circuit'])? $_POST['circuit'] : null,
                 'creation_date' => new DateTime('now'),
                 'map_link' => isset($_POST['map_link'])? $_POST['map_link'] : null,
+                'Id_level' => isset($_POST['Id_level'])? intval($_POST['Id_level']) : null,
+                'Id_type' => isset($_POST['Id_type'])? intval($_POST['Id_type']) : null,
             ];
 
             // Vérifiez si tous les champs obligatoires sont remplis
@@ -46,19 +48,31 @@ class RouteController {
                 }
             }
 
+            
             // Vérifiez que l'utilisateur a les droits d'admin
-            $user = new User($_SESSION['user']);
+            // $user = new User($_SESSION['user']);
+            $user = $_SESSION['user'];
+
+           
             if ($user->getRole()->getName() !== 'Admin') {
                 throw new Exception('Cette action est réservée aux administrateurs.');
             }
 
             // Créez l'objet Route après avoir récupéré les valeurs
             $route = new Route($data);
+
             
             
-        
+            // $route->getLevel()->getIdLevel();
+            // $route->gettype()->getIdType();
+
+            var_dump($route);
+            
             // Instancier le repository et ajouter la route
             $routeRepository->CreateRoute($route);
+
+            // var_dump($route);
+            // die;
 
             // Rediriger vers le tableau de bord après l'insertion réussie
             header('Location: /dashboard');
@@ -80,6 +94,12 @@ class RouteController {
         $routeRepository = new RouteRepository();
         // Récupérer tous les parcours
         $routes = $routeRepository->getAllRoutes();
+
+        // var_dump($routes);
+        // die();
+        
+
+
      
       include_once __DIR__ . '/../Views/Dashboard/routeList.php';
     }
