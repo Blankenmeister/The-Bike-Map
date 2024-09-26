@@ -264,11 +264,22 @@ switch ($route) {
     
     case HOME_URL . 'dashboard/routeList':
         if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+
             $routeController->displayRouteList();
         } else {
             $homeController->signIn();
         }
         break;
+
+        case HOME_URL . 'dashboard/routeDetail':
+            if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+                $Id_route = $_GET['Id_route'];
+                $routeController->displayRouteDetail($Id_route);
+            } else {
+                $homeController->signIn();
+            }
+            break;
+
 
     case HOME_URL . 'signout':
         $homeController->signOut();

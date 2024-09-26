@@ -26,18 +26,18 @@ foreach ($routes as $route) { ?>
                         $creationDateString = $route->getCreationDate();
                         try {
                           $creationDate = new DateTime($creationDateString);
-                          echo $creationDate->format('d/m/Y'); // Affiche sous format jour/mois/année
+                          echo $creationDate->format('d/m/Y'); 
                         } catch (Exception $e) {
-                          echo "Date non valide"; // Si la date n'est pas valide
+                          echo "Date non valide"; 
                         }
                         ?></p>
+    <a href="<?= Domain . HOME_URL ?>dashboard/routeDetail/<?= $route->getIdRoute() ?>">Détail parcours</a>
 
 
 
   <?php } ?>
 
   </div>
-
 
 
 

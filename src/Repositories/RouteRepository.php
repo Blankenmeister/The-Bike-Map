@@ -96,5 +96,39 @@ class RouteRepository
 
 
 
+  public function getRouteById($Id_route) {
+    
+    $sql = "SELECT bike_route.Id_route, 
+    bike_route.name, 
+    bike_route.description, 
+    bike_route.duration, 
+    bike_route.distance, 
+    bike_route.elevation, 
+    bike_route.altitude, 
+    bike_route.circuit, 
+    bike_route.creation_date, 
+    bike_route.map_link,
+    bike_level.Id_level AS Id_level,
+    bike_level.name AS levelName,
+    bike_type.Id_type AS Id_type,
+    bike_type.name AS typeName
+    FROM bike_route 
+    LEFT JOIN bike_type ON bike_route.Id_type = bike_type.Id_type
+    LEFT JOIN bike_level ON bike_route.Id_level = bike_level.Id_level
+    WHERE bike_route.Id_route = :Id_route;";
+
+    $statement = $this->DB->prepare($sql);
+    $statement->execute([':Id_route' => $Id_route]);
+    $statement->setFetchMode(PDO::FETCH_CLASS, Route::class);
+    $route = $statement->fetch();
+
+    return $route;
+        
+  }
+
+
+        
+  
 
 }
+

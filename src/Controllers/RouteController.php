@@ -37,6 +37,8 @@ class RouteController {
                 'Id_type' => isset($_POST['Id_type'])? intval($_POST['Id_type']) : null,
             ];
 
+            // var_dump($data);
+
             // Vérifiez si tous les champs obligatoires sont remplis
             foreach ($data as $key => $value) {
                 if (!$value) {
@@ -66,7 +68,7 @@ class RouteController {
             // $route->getLevel()->getIdLevel();
             // $route->gettype()->getIdType();
 
-            var_dump($route);
+            // var_dump($route);
             
             // Instancier le repository et ajouter la route
             $routeRepository->CreateRoute($route);
@@ -98,16 +100,22 @@ class RouteController {
         // var_dump($routes);
         // die();
         
-
-
-     
       include_once __DIR__ . '/../Views/Dashboard/routeList.php';
     }
 
 
+    public function displayRouteDetail($Id_route) {
+        $routeRepository = new RouteRepository();
+      
+        $route = $routeRepository->getRouteById($Id_route);
 
+         var_dump($route);
+        
 
-  
+        include_once __DIR__. '/../Views/Dashboard/routeDetail.php';
+
+    }
+
 
 
 }
