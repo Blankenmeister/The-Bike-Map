@@ -14,7 +14,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route[0]) {
 
-    case HOME_URL:
+    case '':
         $homeController->index();
         break;
 
