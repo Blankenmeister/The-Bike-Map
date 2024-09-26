@@ -1,4 +1,8 @@
-<?php include_once __DIR__ . '/../Includes/header.php'; ?>
+<?php
+
+use src\Services\Routing;
+
+ include_once __DIR__ . '/../Includes/header.php'; ?>
 
 
 <h1>Liste des parcours</h1>
@@ -31,7 +35,9 @@ foreach ($routes as $route) { ?>
                           echo "Date non valide"; 
                         }
                         ?></p>
-    <a href="<?= Domain . HOME_URL ?>dashboard/routeDetail/<?= $route->getIdRoute() ?>">Détail parcours</a>
+    <a href="<?= Domain . HOME_URL . 'dashboard/route/detail/' . Routing::titleToSlug($route->getName()) ?>">Détail parcours</a>
+
+    
 
 
 

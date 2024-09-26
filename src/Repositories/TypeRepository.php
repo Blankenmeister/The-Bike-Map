@@ -19,7 +19,7 @@ class TypeRepository
     require_once __DIR__ . '/../../config.php';
   }
 
-  public function getTypeById($id)
+  public function getTypeById($id): bool|Type
   {
     try {
       $sql = "SELECT * FROM bike_type
@@ -28,9 +28,9 @@ class TypeRepository
       $statement = $this->DB->prepare($sql);
       $statement->execute([':id' => $id]);
       $statement->setFetchMode(PDO::FETCH_CLASS, Type::class);
-      $user = $statement->fetch();
+      $type = $statement->fetch();
 
-      return $user;
+      return $type;
     } catch (PDOException $e) {
       error_log('Database Error: ' . $e->getMessage());
       throw new Exception('An error occurred during query: ' . $e->getMessage());

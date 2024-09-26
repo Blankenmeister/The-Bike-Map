@@ -20,5 +20,5 @@
 </div>
 
 <div class="col-lg-3 col-md-6 mobile-center">
-  <a class="btn rounded-pill" href="<?= Domain . HOME_URL ?>dashboard/routeList">Liste des parcours</a>
+  <a class="btn rounded-pill" href="<?= Domain . HOME_URL ?>dashboard/route/list">Liste des parcours</a>
 </div>

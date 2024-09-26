@@ -103,12 +103,12 @@ class RouteController {
     }
 
 
-    public function displayRouteDetail($Id_route) {
+    public function displayRouteDetail($TitleRoute) {
         $routeRepository = new RouteRepository();
       
-        $route = $routeRepository->getRouteById($Id_route);
+        $route = $routeRepository->getRouteByTitle($TitleRoute);
 
-         var_dump($route);
+        //  var_dump($route);
         
 
         include_once __DIR__. '/../Views/Dashboard/routeDetail.php';
