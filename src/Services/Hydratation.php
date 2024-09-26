@@ -2,6 +2,9 @@
 
 namespace src\Services;
 
+use src\Repositories\LevelRepository;
+use src\Repositories\TypeRepository;
+
 trait Hydratation
 {
   public function __construct(array $data = array())
@@ -20,13 +23,34 @@ trait Hydratation
       $parts = explode('_', $key);
       $setter = 'set';
 
-      foreach ($parts as $part) {
-        $setter .= ucfirst(strtolower($part));
-      }
+      switch ($key) {
+        case "Id_type":
+          $typeRepository = new TypeRepository();
+          $relatedType = $typeRepository->getTypeById($value);
 
-      if (method_exists($this, $setter)) {
-        $this->$setter($value);
+          if ($relatedType) {
+            $this->setType($relatedType);
+          }
+          break;
+        case "Id_level":
+          $levelRepository = new LevelRepository();
+          $relatedLevel = $levelRepository->getLevelById($value);
+
+          if ($relatedLevel) {
+            $this->setLevel($relatedLevel);
+          }
+          break;
+        default:
+          foreach ($parts as $part) {
+            $setter .= ucfirst(strtolower($part));
+          }
+          
+          if (method_exists($this, $setter)) {
+            $this->$setter($value);
+          }
+          break;
       }
     }
   }
 }
+

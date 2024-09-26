@@ -1,9 +1,6 @@
 <?php include_once __DIR__ . '/../Includes/header.php'; ?>
 
-<?php echo 'je suis dans créer route';
-// echo floatval('a');
-
-?>
+<?php echo 'je suis dans créer route'; ?>
 
 <div class="titre">Créer un parcours</div>
 

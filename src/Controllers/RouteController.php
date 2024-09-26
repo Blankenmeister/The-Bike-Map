@@ -63,10 +63,9 @@ class RouteController {
             // Créez l'objet Route après avoir récupéré les valeurs
             $route = new Route($data);
 
+            // Définir l'utilisateur connecté comme auteur du contenu
+            $route->setUser($_SESSION['user']);
             
-            
-            // $route->getLevel()->getIdLevel();
-            // $route->gettype()->getIdType();
 
             // var_dump($route);
             
