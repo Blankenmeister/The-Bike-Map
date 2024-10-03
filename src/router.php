@@ -9,7 +9,7 @@ $homeController = new HomeController();
 $userController = new UserController(); 
 $routeController = new RouteController();
 
-$route = Routing::routeComposee();
+$route = Routing::routeCompound();
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route[0]) {

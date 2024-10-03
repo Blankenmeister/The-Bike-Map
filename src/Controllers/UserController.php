@@ -28,22 +28,25 @@ class userController
       $_SESSION['connecte'] = true;
       $_SESSION['user'] = $user;
 
-      // Redirige vers le dashboard avec un message de succes
-      header('Location: ' . HOME_URL . 'dashboard?success=Vous êtes connectés avec succès.');
+      // Redirige vers le dashboard avec un message de success
+      header('Location: ' . HOME_URL . 'dashboard');
+      $success = "vous êtes bien connecté";
       exit();
     } catch (Exception $e) {
-      error_log("SignUp Error: " . $e->getMessage());
-
+    
       // Redirige vers la page de connexion avec un message d'erreur
-      header('Location: ' . HOME_URL . 'signIn?error=' . urlencode($e->getMessage()));
-      exit();
+      error_log("Route Add Error: " . $e->getMessage());
+            $erreur = $e->getMessage();
+            include __DIR__. '/../Views/signIn.php';
+            exit;
     }
   }
 
   public function displayDashboard()
   {
-    // Créer l'objet User basé sur l'utilisateur de la session
-    $user = $_SESSION['user'];
+   
+    $user = $_SESSION['user']; 
+
 
     include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
   }

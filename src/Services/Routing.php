@@ -3,7 +3,7 @@ namespace src\Services;
 
 class Routing
 {
-  public static function routeComposee()
+  public static function routeCompound()
   {
     $route = $_SERVER['REDIRECT_URL'];
 

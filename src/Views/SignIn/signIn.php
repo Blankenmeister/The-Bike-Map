@@ -20,6 +20,11 @@
     </div>
 
 
+    <?php if (isset($erreur)) { ?>
+  <div class="alert alert-danger">Erreur lors de la création du parcours : <?php echo $erreur; ?></div>
+<?php } ?>
+
+
     <div class="d-flex  flex-column justify-content-center align-items-center gap-4">
       <img class="logo-connexion" src="<?= Domain . HOME_URL . 'assets/image/logoBike.png'; ?>" alt="logotype du site internet" />
 

@@ -1,5 +1,10 @@
 <?php echo 'je suis dans le dashborad admin'; ?>
 
+
+<?php if (isset($success)) { ?>
+  <div class="alert alert-success">Vous êtes connecté avec succès : <?php echo $success; ?></div>
+<?php } ?>
+
 <div class="titre">Bienvenue <?= $user->getLastName() ?>
 
   <p>Nom : <?= $user->getLastName() ?></p>
