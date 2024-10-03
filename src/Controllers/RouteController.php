@@ -103,10 +103,10 @@ class RouteController {
     }
 
 
-    public function displayRouteDetail($TitleRoute) {
+    public function displayRouteDetail($nameRoute) {
         $routeRepository = new RouteRepository();
       
-        $route = $routeRepository->getRouteByTitle($TitleRoute);
+        $route = $routeRepository->getRouteByName($nameRoute);
 
         //  var_dump($route);
         

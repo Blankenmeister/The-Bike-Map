@@ -6,7 +6,7 @@ use src\Controllers\HomeController;
 use src\Controllers\UserController;
 
 $homeController = new HomeController();
-$userController = new UserController(); // Correction : majuscule pour 'U' dans UserController
+$userController = new UserController(); 
 $routeController = new RouteController();
 
 $route = Routing::routeComposee();
@@ -72,9 +72,9 @@ switch ($route[0]) {
                     case 'detail':
                         if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
 
-                            $TitleRoute = Routing::slugToTitle($route[3]);
+                            $nameRoute = Routing::slugToName($route[3]);
 
-                            $routeController->displayRouteDetail($TitleRoute);
+                            $routeController->displayRouteDetail($nameRoute);
                         } else {
                             $homeController->signIn();
                         }

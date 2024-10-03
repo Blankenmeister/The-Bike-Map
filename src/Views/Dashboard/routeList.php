@@ -35,7 +35,7 @@ foreach ($routes as $route) { ?>
                           echo "Date non valide"; 
                         }
                         ?></p>
-    <a href="<?= Domain . HOME_URL . 'dashboard/route/detail/' . Routing::titleToSlug($route->getName()) ?>">Détail parcours</a>
+    <a href="<?= Domain . HOME_URL . 'dashboard/route/detail/' . Routing::nameToSlug($route->getName()) ?>">Détail parcours</a>
 
     
 

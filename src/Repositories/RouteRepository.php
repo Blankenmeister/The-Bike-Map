@@ -126,7 +126,7 @@ class RouteRepository
         
   }
 
-  public function getRouteByTitle($TitleRoute) {
+  public function getRouteByName($nameRoute) {
     
     $sql = "SELECT bike_route.Id_route, 
     bike_route.name, 
@@ -148,7 +148,7 @@ class RouteRepository
     WHERE bike_route.name = :name;";
 
     $statement = $this->DB->prepare($sql);
-    $statement->execute([':name' => $TitleRoute]);
+    $statement->execute([':name' => $nameRoute]);
     $statement->setFetchMode(PDO::FETCH_CLASS, Route::class);
     $route = $statement->fetch();
 

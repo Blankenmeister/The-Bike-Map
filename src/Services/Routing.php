@@ -18,13 +18,13 @@ class Routing
     return $route;
   }
 
-  public static function slugToTitle(string $slug): string
+  public static function slugToName(string $slug): string
   {
     $title = ucfirst(str_replace('_',' ', $slug));
     return $title;
   }
 
-  public static function titleToSlug(string $title): string
+  public static function nameToSlug(string $title): string
   {
     $slug = strtolower(str_replace(' ', '_', $title));
     return $slug;
