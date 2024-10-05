@@ -14,10 +14,9 @@ class Routing
     for($i=sizeof($route); $i < 4 ; $i ++) {
       $route[$i] = null;
     }
-
     return $route;
   }
-
+  
   public static function slugToName(string $slug): string
   {
     $title = ucfirst(str_replace('_',' ', $slug));

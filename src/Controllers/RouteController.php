@@ -77,6 +77,7 @@ class RouteController {
 
             // Rediriger vers le tableau de bord après l'insertion réussie
             header('Location: /dashboard');
+            $message = 'le parcours a bien été ajouté';
             // echo'Votre parcours a bien été ajouté.';
             exit;
 

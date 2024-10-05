@@ -44,9 +44,8 @@ class userController
 
   public function displayDashboard()
   {
-   
+    
     $user = $_SESSION['user']; 
-
 
     include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
   }

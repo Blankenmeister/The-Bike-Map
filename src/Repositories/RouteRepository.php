@@ -5,8 +5,6 @@ namespace src\Repositories;
 use Exception;
 use src\Models\Route;
 use PDO;
-use PDOException;
-use src\Models\Level;
 use src\Services\Database;
 
 class RouteRepository
@@ -18,11 +16,8 @@ class RouteRepository
     $database = new Database;
     $this->DB = $database->getDB();
 
-
     require_once __DIR__ . '/../../config.php';
   }
-
-
 
   public function getAllRoutes() {
     
@@ -58,17 +53,13 @@ class RouteRepository
   public function CreateRoute(Route $route)
 {
     try {
-        // Requête SQL d'insertion
+
         $sql = "INSERT INTO bike_route 
                 (name, description, duration, distance, elevation, altitude, circuit, creation_date, map_link, Id_level, Id_type, Id_user)    
                 VALUES (:name, :description, :duration, :distance, :elevation, :altitude, :circuit, :creation_date, :map_link, :Id_level, :Id_type, :Id_user);";
         
-        // Préparation de la requête
         $statement = $this->DB->prepare($sql);
 
-        
-
-        // Exécution avec les paramètres
         $statement->execute([
             ':name'            => $route->getName(),
             ':description'     => $route->getDescription(),
@@ -84,17 +75,13 @@ class RouteRepository
             ':Id_user'         => $route->getUser()->getIdUser()
         ]);
 
-      
         return $this->DB->lastInsertId();
         
     } catch (Exception $e) {
-        // Gestion des erreurs : journalisation ou gestion spécifique
         error_log('Erreur lors de la création de la route : ' . $e->getMessage());
-        return false; // ou une autre manière de signaler l'erreur
+        return false; 
     }
 }
-
-
 
   public function getRouteById($idRoute) {
     

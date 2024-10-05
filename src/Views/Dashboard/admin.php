@@ -5,6 +5,16 @@
   <div class="alert alert-success">Vous êtes connecté avec succès : <?php echo $success; ?></div>
 <?php } ?>
 
+<?php if (isset($success)) { ?>
+  <div class="alert alert-success">Vous êtes connecté avec succès : <?php echo $success; ?></div>
+<?php } ?>
+
+<?php
+if (isset($message)) {
+    echo "<p>$message</p>";  // Le message de connexion s'affiche ici
+}
+?>
+
 <div class="titre">Bienvenue <?= $user->getLastName() ?>
 
   <p>Nom : <?= $user->getLastName() ?></p>
