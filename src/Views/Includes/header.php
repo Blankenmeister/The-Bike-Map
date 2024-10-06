@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/style/styleHeader.css' ?>">
   <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/style/styleHome.css' ?>">
   <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/style/styleFooter.css' ?>">
+  <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/style/mobile.css' ?>">
 
 
   <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/bootstrap/css/bootstrap.css' ?>">
