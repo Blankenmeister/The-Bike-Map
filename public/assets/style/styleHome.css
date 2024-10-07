@@ -85,6 +85,35 @@ main {
     
 }
 
+
+
+.text-signin {
+  font-weight: 900;
+  color: #22A737;
+  font-size: 2rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.text-download {
+  font-weight: 900;
+  color: #22A737;
+  font-size: 2rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.text-ride {
+  font-weight: 900;
+  color: #22A737;
+  font-size: 2rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+
+
+
 /* .image {
   background-image: url(../image/bali.jpg);
   background-repeat: no-repeat;
