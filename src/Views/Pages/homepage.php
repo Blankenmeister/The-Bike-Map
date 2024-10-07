@@ -88,7 +88,9 @@ include_once __DIR__ . '/../Includes/header.php'; ?>
   </div>
 
 
-  <div class="image"></div>
+  
+
+  <div class="container line mb-3"></div>
 
   <div class="container banner2 d-flex flex-column flex-md-row justify-content-md-around align-items-md-baseline gap-3">
     <div class="d-flex flex-column justify-content-center align-items-center gap-1">
@@ -229,9 +231,120 @@ include_once __DIR__ . '/../Includes/header.php'; ?>
           </g>
         </g>
       </svg>
-      <div class="text-ride">Part rouler</div>
+      <div class="text-ride">Pars rouler</div>
     </div>
   </div>
+
+  <div class="container line my-5"></div>
+
+  <div class="container my-5">
+    <div class="row g-4">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <a class="card-link" href="">
+          <div class="card">
+            <img class="card-img-top" src="assets/image/bali.jpg" />
+            <div class="card-text p-4">
+              <div class="type-heart d-flex justify-content-between align-items-end mb-1">
+                <p class="card-type m-0">VTT</p>
+                <div class="circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#22A737" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </div>
+              </div>
+              <h5 class="card-name">Le Fort de Comboire</h5>
+              <p class="card-level">Niveau familial</p>
+
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <a class="card-link" href="">
+          <div class="card">
+            <img class="card-img-top" src="assets/image/bali.jpg" />
+            <div class="card-text p-4">
+              <div class="type-heart d-flex justify-content-between align-items-end mb-1">
+                <p class="card-type m-0">VTT</p>
+                <div class="circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#22A737" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </div>
+              </div>
+              <h5 class="card-name">Le Fort de Comboire</h5>
+              <p class="card-level">Niveau familial</p>
+
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <a class="card-link" href="">
+          <div class="card">
+            <img class="card-img-top" src="assets/image/bali.jpg" alt="photographie pour illustrer un endroit du parcours" />
+            <div class="card-text p-4">
+              <div class="type-heart d-flex justify-content-between align-items-end mb-1">
+                <p class="card-type m-0">VTT</p>
+                <div class="circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#22A737" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </div>
+              </div>
+              <h5 class="card-name">Le Fort de Comboire</h5>
+              <p class="card-level">Niveau familial</p>
+
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grey py-5">
+  <div class="container">
+    <div class="row justify-content-center align-items-center g-4">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="d-flex justify-content-center gap-3">
+          <p class="nb3">3</p>
+          <div class="d-flex flex-column justify-content-center align-items-start ">
+          <p class="level m-0">NIVEAUX</p>
+          <p class="type">PRATIQUES</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-4 px-3">
+        <p class="text-parcours">Des parcours sûr au départ de ta ville</p>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center">
+      <a href="<?= Domain . HOME_URL ?>mapList" class="btn btn-bg-green rounded-pill px-3" role="button">PARCOURS</a>
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+
+  <div class="d-flex justify-content-center my-5">
+      <a href="<?= Domain . HOME_URL ?>mapList" class="btn btn-bg-green rounded-pill px-3 py-2 " role="button">CONNEXION</a>
+      </div>
+
+      <div class="image">
+      <div class="text-home">
+      <h1 class="title-home">Des parcours à vélo tous niveaux au départ des centres-villes.</h1>
+      <p class="title2-home">Vélo de route, VTT, Gravel, trouvez facilement votre itinéraire.</p>
+
+      <div class="d-flex justify-content-center">
+      <a href="<?= Domain . HOME_URL ?>mapList" class="btn btn-bg btn-home rounded-pill px-3" role="button">PARCOURS</a>
+      </div>
+    </div>
+
+      </div>
 
 </main>
 
