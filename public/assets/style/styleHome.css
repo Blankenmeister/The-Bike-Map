@@ -91,7 +91,7 @@ main {
 .text-signin {
   font-weight: 900;
   color: #22A737;
-  font-size: 2rem;
+  font-size: 1.7rem;
   line-height: 1.25;
   text-align: center;
 }
@@ -99,7 +99,7 @@ main {
 .text-download {
   font-weight: 900;
   color: #22A737;
-  font-size: 2rem;
+  font-size: 1.7rem;
   line-height: 1.25;
   text-align: center;
 }
@@ -107,7 +107,7 @@ main {
 .text-ride {
   font-weight: 900;
   color: #22A737;
-  font-size: 2rem;
+  font-size: 1.7rem;
   line-height: 1.25;
   text-align: center;
 }
@@ -121,14 +121,14 @@ main {
 }
 
 .type {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   color: #22A737;
   font-weight: 900;
   font-style: italic;
 }
 
 .level {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   color: #22A737;
   font-weight: 900;
   font-style: italic;
@@ -157,7 +157,7 @@ main {
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
-  
+
 } 
 
 
