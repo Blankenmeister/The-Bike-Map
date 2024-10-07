@@ -1,5 +1,5 @@
 <footer>
-  <div class="container footer">
+  <div class="container">
     <div class="row">
       <div class="col-lg-4 col-md-4 col-logo">
         <svg class="logo-footer" viewBox="0 0 868 122" fill="none" xmlns="http://www.w3.org/2000/svg">
