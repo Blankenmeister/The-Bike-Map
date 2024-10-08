@@ -1,3 +1,16 @@
 .route-name {
   font-weight: 900;
+  font-size: 3rem;
 }
+
+.text-icon {
+  font-weight: 700;
+  color: #22A737;
+  font-size: 1.25rem;
+}
+
+.text-km {
+  font-size: 1.5rem;
+}
+
+
