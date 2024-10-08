@@ -35,9 +35,11 @@ foreach ($routes as $route) { ?>
                           echo "Date non valide"; 
                         }
                         ?></p>
-    <a href="<?= Domain . HOME_URL . 'dashboard/route/detail/' . Routing::nameToSlug($route->getName()) ?>">Détail parcours</a>
+    <a href="<?= Domain . HOME_URL . 'dashboard/route/modify/' . Routing::nameToSlug($route->getName()) ?>">Modifier</a>
 
-    
+    <a href="<?= Domain . HOME_URL . 'dashboard/route/delete/' . Routing::nameToSlug($route->getName()) ?>">Supprimer</a>
+
+
 
 
 

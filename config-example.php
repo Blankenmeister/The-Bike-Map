@@ -10,4 +10,4 @@
     define('HOME_URL', '');
     define("Domain", "");
     define("PREFIXE", "");
-
+    define('BASE_DIR', _DIR_);

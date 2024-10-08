@@ -83,6 +83,20 @@ switch ($route[0]) {
             }
             break;
 
+          case 'modify':
+            if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+              if ($method === 'GET') {
+                $nameRoute = Routing::slugToName($route[3]);
+                $routeController->displayModifyRoute($nameRoute);
+              } else if ($method === 'POST') {
+                $routeController->modifyRoute();
+              } else {
+                $homeController->displayPage404();
+              }
+            } else {
+              $homeController->signIn();
+            }
+            break;
           default:
             $homeController->displayPage404();
             break;

@@ -31,6 +31,8 @@ class RouteRepository
     bike_route.circuit, 
     bike_route.creation_date, 
     bike_route.map_link,
+    bike_route.image,
+    bike_route.gpx,
     bike_route.Id_User AS Id_user,
     bike_level.Id_level AS Id_level,
     bike_level.name AS levelName,
@@ -55,8 +57,8 @@ class RouteRepository
     try {
 
         $sql = "INSERT INTO bike_route 
-                (name, description, duration, distance, elevation, altitude, circuit, creation_date, map_link, Id_level, Id_type, Id_user)    
-                VALUES (:name, :description, :duration, :distance, :elevation, :altitude, :circuit, :creation_date, :map_link, :Id_level, :Id_type, :Id_user);";
+                (name, description, duration, distance, elevation, altitude, circuit, gpx, image,creation_date, map_link, Id_level, Id_type, Id_user)    
+                VALUES (:name, :description, :duration, :distance, :elevation, :altitude, :circuit, :gpx, :image, :creation_date, :map_link, :Id_level, :Id_type, :Id_user);";
         
         $statement = $this->DB->prepare($sql);
 
@@ -70,6 +72,8 @@ class RouteRepository
             ':circuit'         => $route->getCircuit(),
             ':creation_date'   => $route->getCreationDate()->format('Y-m-d'),
             ':map_link'        => $route->getMapLink(),
+            ':gpx'        => $route->getGpx(),
+            ':image'        => $route->getImage(),
             ':Id_level'        => $route->getLevel()->getIdLevel(),
             ':Id_type'         => $route->getType()->getIdType(),
             ':Id_user'         => $route->getUser()->getIdUser()
@@ -79,6 +83,44 @@ class RouteRepository
         
     } catch (Exception $e) {
         error_log('Erreur lors de la création de la route : ' . $e->getMessage());
+        return false; 
+    }
+}
+
+public function updateRoute(Route $route)
+{
+    try {
+
+        $sql = "UPDATE bike_route SET name = :name, description = :description, duration = :duration, distance = :distance, elevation = :elevation, altitude = :altitude, circuit = :circuit, gpx = :gpx, image = :image, map_link = :map_link, Id_level = :Id_level, Id_type = :Id_type where Id_route = :Id_route;";
+        
+        $statement = $this->DB->prepare($sql);
+
+        $statement->execute([
+            ':name'            => $route->getName(),
+            ':description'     => $route->getDescription(),
+            ':duration'        => $route->getDuration()->format('H:i'),
+            ':distance'        => $route->getDistance(),
+            ':elevation'       => $route->getElevation(),
+            ':altitude'        => $route->getAltitude(),
+            ':circuit'         => $route->getCircuit(),
+            ':map_link'        => $route->getMapLink(),
+            ':gpx'        => $route->getGpx(),
+            ':image'        => $route->getImage(),
+            ':Id_level'        => $route->getLevel()->getIdLevel(),
+            ':Id_type'         => $route->getType()->getIdType(),
+            ':Id_route'        => $route->getIdRoute()
+        ]);
+
+         // Get the number of affected rows
+        $affectedRows = $statement->rowCount();
+        if ($affectedRows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    } catch (Exception $e) {
+        error_log('Erreur lors de la modification de la route : ' . $e->getMessage());
         return false; 
     }
 }
@@ -95,6 +137,8 @@ class RouteRepository
     bike_route.circuit, 
     bike_route.creation_date, 
     bike_route.map_link,
+    bike_route.gpx,
+    bike_route.image,
     bike_level.Id_level AS Id_level,
     bike_level.name AS levelName,
     bike_type.Id_type AS Id_type,
@@ -125,6 +169,8 @@ class RouteRepository
     bike_route.circuit, 
     bike_route.creation_date, 
     bike_route.map_link,
+    bike_route.gpx,
+    bike_route.image,
     bike_level.Id_level AS Id_level,
     bike_level.name AS levelName,
     bike_type.Id_type AS Id_type,

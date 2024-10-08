@@ -11,6 +11,8 @@ class Route
   private ?int $Id_route = null;
   private ?string $name = null;
   private ?string $description = null;
+  private ?string $image = null;
+  private ?string $gpx = null;
   private null|DateTime|string $duration = null;
   private ?float $distance = null;
   private ?int $elevation = null;
@@ -325,6 +327,42 @@ class Route
   public function setComment(?Comment $comment): self
   {
     $this->comment = $comment;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of gpx
+   */
+  public function getGpx(): ?string
+  {
+    return $this->gpx;
+  }
+
+  /**
+   * Set the value of image
+   */
+  public function setGpx(?string $gpx): self
+  {
+    $this->gpx = $gpx;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of image
+   */
+  public function getImage(): ?string
+  {
+    return $this->image;
+  }
+
+  /**
+   * Set the value of image
+   */
+  public function setImage(?string $image): self
+  {
+    $this->image = $image;
 
     return $this;
   }
