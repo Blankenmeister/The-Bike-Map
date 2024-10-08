@@ -2,11 +2,16 @@
 
 namespace src\Controllers;
 
+use src\Repositories\RouteRepository;
+
 
 class HomeController
 {
 
-  public function index()
+  public
+
+
+ function index()
   {
 
     include_once __DIR__ . '/../Views/Pages/homepage.php';
@@ -14,6 +19,10 @@ class HomeController
 
   public function displayMaplist()
   {
+
+    $routeRepository = new RouteRepository();
+        // Récupérer tous les parcours
+        $routes = $routeRepository->getAllRoutes();
     include_once __DIR__ . '/../Views/Pages/mapList.php';
   }
 

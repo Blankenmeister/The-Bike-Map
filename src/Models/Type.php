@@ -32,11 +32,16 @@ class Type {
         return $this;
     }
 
+    public function __toString() {
+        return $this->name;
+    }
+
     /**
      * Get the value of name
      */
     public function getName(): ?string
     {
+
         return $this->name;
     }
 
