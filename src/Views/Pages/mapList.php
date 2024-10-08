@@ -14,7 +14,7 @@
   <div class="row mb-5">
     <div class="col-sm-12 col-md-6 ">
       <label for="level" class="form-label"></label>
-      <select id="level" name="Id_level" class="form-select rounded-pill py-3" required>
+      <select id="level" name="Id_level" class="form-select rounded-pill p-3" required>
         <option selected>NIVEAU</option>
         <option value="1">Familial</option>
         <option value="2">Sportif</option>
@@ -24,7 +24,7 @@
 
     <div class="col-sm-12 col-md-6">
       <label for="type" class="form-label"></label>
-      <select id="type" name="Id_type" class="form-select rounded-pill py-3" required>
+      <select id="type" name="Id_type" class="form-select rounded-pill p-3" required>
         <option selected>PRATIQUE</option>
         <option value="1">Route</option>
         <option value="2">Gravel</option>
