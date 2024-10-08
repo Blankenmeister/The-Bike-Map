@@ -1,0 +1,39 @@
+.form-select {
+  width: 60% !important;
+  font-weight: 700 !important;
+  color: #22A737 !important;
+}
+
+.card-link {
+  text-decoration: none !important;
+  color: #000000 !important;
+}
+
+.card-text {
+  background-color: #E7E7E7;
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.card-name {
+  font-weight: 700;
+}
+
+.card-level {
+  font-weight: 700;
+}
+
+.card-type {
+  line-height: 1.5;
+}
+
+.card {
+  border: hidden !important; 
+}
+
+.circle {
+  background-color: #ffffff;
+  border-radius: 35px;
+  display: inline-block;
+  padding: 0.5rem;
+  line-height: 1;
+}

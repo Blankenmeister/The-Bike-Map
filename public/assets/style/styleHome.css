@@ -1,7 +1,7 @@
-main {
+/* main {
   font-family: "Montserrat" , system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.hero-home {
+} */
+/* .hero-home {
 
   width: 100%;
   
@@ -9,13 +9,11 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-}
+} */
 
-a {
-  text-decoration: none !important;
-}
 
-.hero-text {
+
+/* .hero-text {
   text-align: center;
   position: absolute;
   top: 50%;
@@ -23,10 +21,9 @@ a {
   transform: translate(-50%, -50%);
   color: white;
 
-}
+} */
 
-
-.text1 {
+/* .text1 {
   font-family: "Montserrat" , system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
@@ -36,7 +33,12 @@ a {
   font-family: "Montserrat" , system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 1rem;
   font-weight: 700;
-}
+} */
+
+
+a {
+  text-decoration: none !important;
+} 
 
 .btn-bg {
   background-color: #ffffff !important;
@@ -51,41 +53,7 @@ a {
   
 }
 
-.card-link {
-  text-decoration: none !important;
-  color: #000000 !important;
-}
 
-.card-text {
-  background-color: #E7E7E7;
-  border-radius: 0 0 0.25rem 0.25rem;
-  
-}
-
-.card-name {
-  font-weight: 700;
-}
-
-.card-level {
-  font-weight: 700;
-}
-
-.card-type {
-  line-height: 1.5;
-}
-
-.card {
-  border: hidden !important; 
-}
-
-.circle {
-  background-color: #ffffff;
-    border-radius: 35px;
-    display: inline-block;
-    padding: 0.5rem;
-    line-height: 1;
-    
-}
 
 .line {
   border-top: 1px solid #22A737;
