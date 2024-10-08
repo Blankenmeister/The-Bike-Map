@@ -23,7 +23,7 @@ include_once __DIR__ . '/../Includes/header.php'; ?>
       <h1 class="title-home">Des parcours à vélo tous niveaux au départ des centres-villes.</h1>
       <p class="title2-home">Vélo de route, VTT, Gravel, trouvez facilement votre itinéraire.</p>
       <div class="d-flex justify-content-center">
-        <a href="<?= Domain . HOME_URL ?>mapList" class="btn btn-bg btn-home rounded-pill px-3" role="button">PARCOURS</a>
+        <a href="<?= Domain . HOME_URL ?>mapList" class="btn-bg btn-home rounded-pill px-3 py-2" role="button">PARCOURS</a>
       </div>
     </div>
   </div>
@@ -331,7 +331,7 @@ include_once __DIR__ . '/../Includes/header.php'; ?>
         </div>
 
         <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center">
-          <a href="<?= Domain . HOME_URL ?>mapList" class="btn btn-bg-green rounded-pill px-3" role="button">PARCOURS</a>
+          <a href="<?= Domain . HOME_URL ?>mapList" class="btn-bg-grey rounded-pill px-3 py-2" role="button">PARCOURS</a>
         </div>
 
       </div>
@@ -340,7 +340,7 @@ include_once __DIR__ . '/../Includes/header.php'; ?>
   </div>
 
   <div class="d-flex justify-content-center my-5">
-    <a href="<?= Domain . HOME_URL ?>mapList" class="btn btn-bg-green rounded-pill px-3 py-2 " role="button">CONNEXION</a>
+    <a href="<?= Domain . HOME_URL ?>mapList" class=" btn-bg-green rounded-pill px-3 py-2 " role="button">CONNEXION</a>
   </div>
 
 
