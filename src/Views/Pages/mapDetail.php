@@ -46,7 +46,25 @@
             </g>
           </g>
         </svg>
-        <p class="text-icon">2h</p>
+        <p class="text-icon"><?php $durationString = $route->getDuration();
+                try {
+                  $duration = new DateTime($durationString);
+                  $hours = (int) $duration->format('H');  // Convertir en entier pour enlever le zéro avant
+                  $minutes = $duration->format('i');  // Les minutes
+            
+                  // Vérifier si les minutes sont égales à "00"
+                  if ($minutes == '00') {
+                    // Afficher uniquement les heures si les minutes sont égales à "00"
+                    echo $hours . 'h';
+                  } else {
+                    // Afficher les heures et les minutes si elles sont différentes de "00"
+                    echo $hours . 'h' . $minutes;
+                  }
+                  
+                } catch (Exception $e) {
+                  echo "Durée non valide";
+                }
+                ?></p>
       </div>
     </div>
 
@@ -102,12 +120,11 @@
       </div>
     </div>
 
-    
-
   </div>
 
-
 </div>
+
+
 
 
 <div class="container">
