@@ -11,7 +11,7 @@ class HomeController
   public
 
 
- function index()
+  function index()
   {
 
     include_once __DIR__ . '/../Views/Pages/homepage.php';
@@ -19,15 +19,25 @@ class HomeController
 
   public function displayMaplist()
   {
-
     $routeRepository = new RouteRepository();
-        // Récupérer tous les parcours
-        $routes = $routeRepository->getAllRoutes();
+    // Récupérer tous les parcours
+    $routes = $routeRepository->getAllRoutes();
     include_once __DIR__ . '/../Views/Pages/mapList.php';
   }
 
-  public function displayMapDetail()
+  // public function displayMapDetail()
+  // {
+  //   include_once __DIR__ . '/../Views/Pages/mapDetail.php';
+  // }
+
+  public function displayMapDetail($nameRoute)
   {
+    $routeRepository = new RouteRepository();
+
+    $route = $routeRepository->getRouteByName($nameRoute);
+
+    //  var_dump($route);
+
     include_once __DIR__ . '/../Views/Pages/mapDetail.php';
   }
 

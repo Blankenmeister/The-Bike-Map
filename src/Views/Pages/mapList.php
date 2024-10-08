@@ -46,7 +46,7 @@ include_once __DIR__ . '/../Includes/header.php'; ?>
     <?php
     foreach ($routes as $route) { ?>
       <div class="col-sm-12 col-md-6 col-lg-4">
-        <a class="card-link" href="<?= Domain . HOME_URL ?>mapDetail">
+        <a href="<?= Domain . HOME_URL . 'mapDetail/' . Routing::nameToSlug($route->getName()) ?>">
           <div class="card">
             <img class="card-img-top" src="assets/image/bali.jpg" />
             <div class="card-text p-4">
@@ -60,12 +60,11 @@ include_once __DIR__ . '/../Includes/header.php'; ?>
               </div>
               <h5 class="card-name"><?= $route->getName() ?></h5>
               <p class="card-level">Niveau <?= $route->getLevel() ?></p>
-
             </div>
           </div>
         </a>
       </div>
-      <!--<a href="<?= Domain . HOME_URL . 'dashboard/route/detail/' . Routing::nameToSlug($route->getName()) ?>"></a>-->
+      </a>
 
 
     <?php } ?>

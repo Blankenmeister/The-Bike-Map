@@ -20,8 +20,10 @@
         </svg>
       </div>
     </div>
-    <h1 class="route-name text-center">Le Fort de Comboire</h1>
-    <p class="text-km text-center">150 km</p>
+    <h1 class="route-name text-center"><?= $route->getName() ?></h1>
+    <p class="text-km text-center"><?= $route->getDistance() ?>km</p>
+    <p class="text-km text-center"><?= $route->getType() ?></p>
+    <p class="text-km text-center"><?= $route->getLevel() ?></p>
   </div>
 </div>
 
@@ -62,7 +64,7 @@
             <path class="cls-1" d="m285.5,0c-18.64,12.98-44.8,26.97-65.88,32.26l28.94,7.72-74.3,106.81-61.18-111.4c-1.31-2.38-3.79-3.87-6.51-3.89h-.07c-2.69,0-5.17,1.44-6.51,3.77L.99,208.27c-2.06,3.6-.81,8.18,2.79,10.24,1.17.67,2.45.99,3.72.99,2.6,0,5.13-1.36,6.52-3.78L106.37,54.34l60.56,110.27c1.25,2.28,3.59,3.74,6.18,3.88,2.61.14,5.07-1.08,6.55-3.21l81.21-116.74,17.31,24.45c-2.37-21.6,1.65-51,7.33-72.99Z" />
           </g>
         </svg>
-        <p class="text-icon">535 D+</p>
+        <p class="text-icon"><?= $route->getElevation() ?>D+</p>
       </div>
     </div>
 
@@ -71,11 +73,13 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#22A737" class="bi bi-triangle" viewBox="0 0 16 16">
           <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z" />
         </svg>
-        <p class="text-icon">950 m</p>
+        <p class="text-icon"><?= $route->getAltitude() ?>m</p>
       </div>
     </div>
 
-    <div class="col-6 col-md-3">
+
+    <?php if ($route->getCircuit() == "1") {
+          echo '<div class="col-6 col-md-3">
       <div class="circuit d-flex justify-content-start justify-content-md-center align-items-start gap-2">
         <svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" width="25" heigth="25" viewBox="0 0 246 265.94">
           <defs>
@@ -89,9 +93,16 @@
             <path class="cls-1" d="m233.87,89.61c-1.8-3.73-6.28-5.29-10.01-3.5-3.73,1.8-5.3,6.28-3.5,10.01,7.06,14.66,10.65,30.41,10.65,46.82,0,59.55-48.45,108-108,108S15,202.49,15,142.94,63.45,34.94,123,34.94c11.71,0,23.13,1.84,34.06,5.48l-20.94,15.74,80.6.99L159.88,0l3.38,26.69c-12.91-4.48-26.41-6.75-40.26-6.75C55.18,19.94,0,75.12,0,142.94s55.18,123,123,123,123-55.18,123-123c0-18.68-4.08-36.62-12.13-53.33Z" />
           </g>
         </svg>
-        <p class="text-icon">Boucle</p>
+        <p class="text-icon">Boucle</p>';
+        }else {
+          echo "";  // Affiche ceci si circuit vaut 0
+        }; ?>
+    
+        
       </div>
     </div>
+
+    
 
   </div>
 

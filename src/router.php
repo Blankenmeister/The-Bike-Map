@@ -23,7 +23,10 @@ switch ($route[0]) {
     break;
 
   case 'mapDetail':
-    $homeController->displayMapDetail();
+    $nameRoute = Routing::slugToName($route[1]);
+
+    $homeController->displayMapDetail($nameRoute);
+    
     break;
 
   case 'contact':
