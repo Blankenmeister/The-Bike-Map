@@ -49,8 +49,9 @@
         <input type="password" id="mdp" name="password" class="form-control" required placeholder="Entrez votre mot de passe" aria-describedby="passwordHelpBlock" />
       </div>
 
-
+      <div class="d-flex justify-content-center my-3">
       <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 my-2 ">CONNEXION</button>
+      </div>
     </div>
   </form>
 
@@ -85,8 +86,9 @@
         <input type="password" id="mdp" name="passwordConf" class="form-control" required placeholder="Entrez votre mot de passe" aria-describedby="passwordHelpBlock" />
       </div>
 
-
+      <div class="d-flex justify-content-center my-3">
       <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 ">INSCRIPTION</button>
+      </div>
     </div>
 
   </form>

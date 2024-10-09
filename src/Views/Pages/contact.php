@@ -61,7 +61,9 @@
         <textarea class="form-control" id="message" name="message" required placeholder="Saisissez votre message ici..."></textarea>
       </div>
 
-      <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 ">ENVOYER</button>
+      <div class="d-flex justify-content-center my-5">
+        <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 ">ENVOYER</button>
+      </div>
     </div>
 
   </form>
