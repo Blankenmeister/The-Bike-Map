@@ -58,9 +58,9 @@ class RouteController {
             
             // vérification du gpx mais il peut être vide
             if (empty($_FILES['gpx']) || $_FILES['gpx']['error'] == UPLOAD_ERR_OK) {
-                if (!in_array($_FILES['gpx']['type'], ['application/gpx+xml', 'text/xml'])) {
-                    throw new Exception("Le champ GPX n'a pas le bon type (gpx/xml)");
-                }
+                // if (!in_array($_FILES['gpx']['type'], ['application/gpx+xml', 'text/xml'])) {
+                //     throw new Exception("Le champ GPX n'a pas le bon type (gpx/xml)");
+                // }
             
                 $max_upload = rtrim("2M", 'M');
                 $max_upload = $max_upload * 1024 * 1024;

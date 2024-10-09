@@ -48,7 +48,7 @@ include_once __DIR__ . '/../Includes/header.php'; ?>
       <div class="col-sm-12 col-md-6 col-lg-4">
         <a href="<?= Domain . HOME_URL . 'mapDetail/' . Routing::nameToSlug($route->getName()) ?>">
           <div class="card">
-            <img class="card-img-top" src="assets/image/bali.jpg" />
+          <img class="route-image" src="assets/image/bali.jpg" alt="photographie pour illustrer un endroit du parcours" />
             <div class="card-text p-4">
               <div class="type-heart d-flex justify-content-between align-items-end mb-1">
                 <p class="card-type m-0"><?= $route->getType() ?></p>

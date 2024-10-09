@@ -47,24 +47,23 @@
           </g>
         </svg>
         <p class="text-icon"><?php $durationString = $route->getDuration();
-                try {
-                  $duration = new DateTime($durationString);
-                  $hours = (int) $duration->format('H');  // Convertir en entier pour enlever le zéro avant
-                  $minutes = $duration->format('i');  // Les minutes
-            
-                  // Vérifier si les minutes sont égales à "00"
-                  if ($minutes == '00') {
-                    // Afficher uniquement les heures si les minutes sont égales à "00"
-                    echo $hours . 'h';
-                  } else {
-                    // Afficher les heures et les minutes si elles sont différentes de "00"
-                    echo $hours . 'h' . $minutes;
-                  }
-                  
-                } catch (Exception $e) {
-                  echo "Durée non valide";
-                }
-                ?></p>
+                              try {
+                                $duration = new DateTime($durationString);
+                                $hours = (int) $duration->format('H');  // Convertir en entier pour enlever le zéro avant
+                                $minutes = $duration->format('i');  // Les minutes
+
+                                // Vérifier si les minutes sont égales à "00"
+                                if ($minutes == '00') {
+                                  // Afficher uniquement les heures si les minutes sont égales à "00"
+                                  echo $hours . 'h';
+                                } else {
+                                  // Afficher les heures et les minutes si elles sont différentes de "00"
+                                  echo $hours . 'h' . $minutes;
+                                }
+                              } catch (Exception $e) {
+                                echo "Durée non valide";
+                              }
+                              ?></p>
       </div>
     </div>
 
@@ -97,7 +96,7 @@
 
 
     <?php if ($route->getCircuit() == "1") {
-          echo '<div class="col-6 col-md-3">
+      echo '<div class="col-6 col-md-3">
       <div class="circuit d-flex justify-content-start justify-content-md-center align-items-start gap-2">
         <svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" width="25" heigth="25" viewBox="0 0 246 265.94">
           <defs>
@@ -112,24 +111,25 @@
           </g>
         </svg>
         <p class="text-icon">Boucle</p>';
-        }else {
-          echo "";  // Affiche ceci si circuit vaut 0
-        }; ?>
-    
-        
-      </div>
-    </div>
+    } else {
+      echo "";  // Affiche ceci si circuit vaut 0
+    }; ?>
+
 
   </div>
+</div>
 
 </div>
 
+</div>
 
+<iframe width="100%" height="300px" frameborder="0" allowfullscreen allow="geolocation" src="//umap.openstreetmap.fr/fr/map/le-tour-du-neron_1121432?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&editMode=disabled&moreControl=false&searchControl=false&tilelayersControl=null&embedControl=false&datalayersControl=true&onLoadPanel=none&captionBar=false&captionMenus=true&fullscreenControl=false"></iframe>
 
+<div class="container mt-2">
 
-<div class="container">
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum ligula id consectetur molestie. Suspendisse eget sodales augue. Etiam vestibulum in turpis rutrum accumsan. Ut sem tortor, finibus ac turpis vitae, fringilla semper mauris. Mauris posuere nibh nisi, at scelerisque neque vehicula ac. Quisque consectetur orci non nibh pellentesque, eget dapibus tortor pulvinar. Etiam auris. Mauris posuere nibh nisi, at scelerisque neque vehicula ac. Quisque consectetur orci non nibh </p>
 
+  <img class="route-image mt-3" src="../assets/image/grece.jpg" alt="Photo représentant l'ambiance d'un parcours" />
 
   <div class="d-flex flex-column justify-content-center align-items-center my-5 gap-3">
     <svg width="60" height="60" viewBox="0 0 100 99" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +138,8 @@
       <path d="M72.11 56.22H27.89C26.44 56.22 25.25 57.4 25.25 58.86C25.25 60.32 26.43 61.5 27.89 61.5H72.11C73.56 61.5 74.74 60.32 74.74 58.86C74.74 57.4 73.56 56.22 72.11 56.22Z" fill="#22A737" />
       <path d="M42.5391 74.5684V80.2031C42.3177 80.4701 41.9759 80.7598 41.5137 81.0723C41.0514 81.3783 40.4557 81.6419 39.7266 81.8633C38.9974 82.0846 38.1152 82.1953 37.0801 82.1953C36.1621 82.1953 35.3255 82.0456 34.5703 81.7461C33.8151 81.4401 33.1641 80.9941 32.6172 80.4082C32.0768 79.8223 31.6602 79.1061 31.3672 78.2598C31.0742 77.4069 30.9277 76.4336 30.9277 75.3398V74.4512C30.9277 73.3574 31.0677 72.3841 31.3477 71.5312C31.6341 70.6784 32.041 69.959 32.5684 69.373C33.0957 68.7871 33.724 68.3411 34.4531 68.0352C35.1823 67.7292 35.9928 67.5762 36.8848 67.5762C38.1217 67.5762 39.1374 67.778 39.9316 68.1816C40.7259 68.5788 41.3314 69.1322 41.748 69.8418C42.1712 70.5449 42.4316 71.3522 42.5293 72.2637H39.6875C39.6159 71.7819 39.4792 71.362 39.2773 71.0039C39.0755 70.6458 38.7858 70.3659 38.4082 70.1641C38.0371 69.9622 37.5553 69.8613 36.9629 69.8613C36.4746 69.8613 36.0384 69.9622 35.6543 70.1641C35.2767 70.3594 34.9577 70.6491 34.6973 71.0332C34.4368 71.4173 34.2383 71.8926 34.1016 72.459C33.9648 73.0254 33.8965 73.6829 33.8965 74.4316V75.3398C33.8965 76.082 33.9681 76.7396 34.1113 77.3125C34.2546 77.8789 34.4661 78.3574 34.7461 78.748C35.0326 79.1322 35.3841 79.4219 35.8008 79.6172C36.2174 79.8125 36.7025 79.9102 37.2559 79.9102C37.7181 79.9102 38.1022 79.8711 38.4082 79.793C38.7207 79.7148 38.9714 79.6204 39.1602 79.5098C39.3555 79.3926 39.5052 79.2819 39.6094 79.1777V76.6582H36.9336V74.5684H42.5391ZM50.4395 76.9316H46.8164V74.6465H50.4395C50.9993 74.6465 51.4551 74.5553 51.8066 74.373C52.1582 74.1842 52.4154 73.9238 52.5781 73.5918C52.7409 73.2598 52.8223 72.8854 52.8223 72.4688C52.8223 72.0456 52.7409 71.6517 52.5781 71.2871C52.4154 70.9225 52.1582 70.6296 51.8066 70.4082C51.4551 70.1868 50.9993 70.0762 50.4395 70.0762H47.832V82H44.9023V67.7812H50.4395C51.5527 67.7812 52.5065 67.9831 53.3008 68.3867C54.1016 68.7839 54.7135 69.334 55.1367 70.0371C55.5599 70.7402 55.7715 71.5443 55.7715 72.4492C55.7715 73.3672 55.5599 74.1615 55.1367 74.832C54.7135 75.5026 54.1016 76.0202 53.3008 76.3848C52.5065 76.7493 51.5527 76.9316 50.4395 76.9316ZM59.7559 67.7812L62.4316 72.7422L65.1074 67.7812H68.457L64.3262 74.832L68.5645 82H65.1855L62.4316 76.9414L59.6777 82H56.2793L60.5273 74.832L56.3867 67.7812H59.7559Z" fill="#22A737" />
     </svg>
-    <a href="<?= Domain . HOME_URL ?>mapList" class=" btn-bg-green rounded-pill px-4 py-2 " role="button">Télécharger</a>
+
+    <a href="../uploaded/gpx/le_tour_du_n_ron.gpx" download class=" btn-bg-green rounded-pill px-4 py-2 " role="button">Télécharger</a>
   </div>
 
 </div>
