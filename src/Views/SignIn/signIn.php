@@ -38,7 +38,7 @@
   <form action="<?= Domain . HOME_URL . 'signin' ?>" method="POST" id="formConnexion">
 
     <!--<input type="email" id="emailSignIn" name="email" class="mb-3 form-control form-control-sm email-connexion" aria-describedby="emailHelp" placeholder="Enter your email" required autocomplete="email" />-->
-    <div class="d-flex flex-column align-items-center gap-4 my-5">
+    <div class="contact-form d-flex flex-column gap-4 my-5">
       <div>
         <label for="emailSignIn" class="form-label">Adresse email</label>
         <input type="email" id="emailSignIn" name="email" class="form-control" required placeholder="name@example.com" />
@@ -54,12 +54,12 @@
     </div>
   </form>
 
-  <h4 class="title-signin text-center">Pas encore inscrit ? </h4>
-  <h4 class="title-signin text-center  mb-5">Créer votre compte maintenant </h4>
+  <h4 class="title-signin text-center">Pas encore inscrit ?</h4>
+  <h4 class="title-signin text-center  mb-5">Créer votre compte.</h4>
 
   <form action="<?= Domain . HOME_URL . 'signin' ?>" method="POST" id="formConnexion">
 
-    <div class="d-flex flex-column align-items-center gap-4 my-5">
+    <div class="contact-form d-flex flex-column gap-4 my-5">
       <div>
         <label for="lastName" class="form-label">Nom</label>
         <input type="text" id="lastName" name="lastName" class="form-control" required placeholder="Entrez votre nom" />
