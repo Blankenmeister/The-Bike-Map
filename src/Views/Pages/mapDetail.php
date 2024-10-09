@@ -21,9 +21,12 @@
       </div>
     </div>
     <h1 class="route-name text-center"><?= $route->getName() ?></h1>
-    <p class="text-km text-center"><?= $route->getDistance() ?>km</p>
-    <p class="text-km text-center"><?= $route->getType() ?></p>
-    <p class="text-km text-center"><?= $route->getLevel() ?></p>
+
+    <div class="d-flex justify-content-center gap-3">
+      <p class="text-km text-center"><?= $route->getDistance() ?>km</p>
+      <p class="text-km text-center"><?= $route->getType() ?></p>
+      <p class="text-km text-center"><?= $route->getLevel() ?></p>
+    </div>
   </div>
 </div>
 
@@ -123,9 +126,9 @@
 
 </div>
 
-<iframe width="100%" height="300px" frameborder="0" allowfullscreen allow="geolocation" src="//umap.openstreetmap.fr/fr/map/le-tour-du-neron_1121432?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&editMode=disabled&moreControl=false&searchControl=false&tilelayersControl=null&embedControl=false&datalayersControl=true&onLoadPanel=none&captionBar=false&captionMenus=true&fullscreenControl=false"></iframe>
+<iframe width="100%" height="300px" frameborder="0" allowfullscreen allow="geolocation" src="//umap.openstreetmap.fr/fr/map/le-tour-du-neron_1121432?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&editMode=disabled&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=false&datalayersControl=true&onLoadPanel=none&captionBar=false&captionMenus=false&fullscreenControl=false"></iframe>
 
-<div class="container mt-2">
+<div class="container mt-3">
 
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum ligula id consectetur molestie. Suspendisse eget sodales augue. Etiam vestibulum in turpis rutrum accumsan. Ut sem tortor, finibus ac turpis vitae, fringilla semper mauris. Mauris posuere nibh nisi, at scelerisque neque vehicula ac. Quisque consectetur orci non nibh pellentesque, eget dapibus tortor pulvinar. Etiam auris. Mauris posuere nibh nisi, at scelerisque neque vehicula ac. Quisque consectetur orci non nibh </p>
 

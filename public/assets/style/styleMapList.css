@@ -1,8 +1,13 @@
 .form-select {
   width: 60% !important;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700 !important;
   color: #22A737 !important;
   background-color: #F2F2F2 !important;
+}
+
+a {
+  color: #000000 !important;
 }
 
 .card-link {
@@ -16,14 +21,17 @@
 }
 
 .card-name {
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
 .card-level {
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
 .card-type {
+  font-family: "Montserrat", sans-serif;
   line-height: 1.5;
 }
 
@@ -36,6 +44,6 @@
   border-radius: 35px;
   display: inline-block;
   padding: 0.5rem;
-  line-height: 1;
+  line-height: 0;
   cursor: pointer;
 }

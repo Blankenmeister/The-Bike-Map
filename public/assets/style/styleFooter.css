@@ -3,7 +3,6 @@ footer {
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
-  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
@@ -14,11 +13,14 @@ footer {
 }
 
 .text {
+  font-family: "Montserrat", sans-serif;
   color: #ffffff;
   font-weight: 700;
 }
 
 .link {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 400 !important;
   text-decoration: none !important;
   color: #ffffff !important;
 }

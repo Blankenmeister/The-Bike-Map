@@ -33,31 +33,66 @@
   <h1 class="title text-center mb-5">Vélo de route, VTT, Gravel, trouvez facilement votre itinéraire.</h1>
 
 
-  <div class="d-flex flex-column justify-content-center align-items-center gap-5 my-5">
 
-<form action="<?= Domain . HOME_URL . 'signin' ?>" method="POST" id="formConnexion" class="form-connexion">
 
-  <!--<input type="email" id="emailSignIn" name="email" class="mb-3 form-control form-control-sm email-connexion" aria-describedby="emailHelp" placeholder="Enter your email" required autocomplete="email" />-->
+  <form action="<?= Domain . HOME_URL . 'signin' ?>" method="POST" id="formConnexion">
 
-  <label for="emailSignIn" class="form-label">Adresse email</label>
-  <input type="email" id="emailSignIn" name="email" class="form-control" required placeholder="name@example.com" />
+    <!--<input type="email" id="emailSignIn" name="email" class="mb-3 form-control form-control-sm email-connexion" aria-describedby="emailHelp" placeholder="Enter your email" required autocomplete="email" />-->
+    <div class="d-flex flex-column align-items-center gap-4 my-5">
+      <div>
+        <label for="emailSignIn" class="form-label">Adresse email</label>
+        <input type="email" id="emailSignIn" name="email" class="form-control" required placeholder="name@example.com" />
+      </div>
+      <!--<input type="password" id="mdp" name="password" class="mb-3 form-control mdp-connexion" required placeholder="Enter your password" />-->
+      <div>
+        <label for="mdp" class="form-label">Mot de passe</label>
+        <input type="password" id="mdp" name="password" class="form-control" required placeholder="Entrez votre mot de passe" aria-describedby="passwordHelpBlock" />
+      </div>
 
-  <!--<input type="password" id="mdp" name="password" class="mb-3 form-control mdp-connexion" required placeholder="Enter your password" />-->
 
-  <label for="mdp" class="form-label">Mot de passe</label>
-  <input type="password" id="mdp" name="password" class="form-control" required placeholder="Entrez votre mot de passe" aria-describedby="passwordHelpBlock" />
-  
+      <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 my-2 ">CONNEXION</button>
+    </div>
+  </form>
 
-  
-    <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 ">CONNEXION</button>
-  </div>
+  <h4 class="title-signin text-center">Pas encore inscrit ? </h4>
+  <h4 class="title-signin text-center  mb-5">Créer votre compte maintenant </h4>
 
- 
-</form>
+  <form action="<?= Domain . HOME_URL . 'signin' ?>" method="POST" id="formConnexion">
+
+    <div class="d-flex flex-column align-items-center gap-4 my-5">
+      <div>
+        <label for="lastName" class="form-label">Nom</label>
+        <input type="text" id="lastName" name="lastName" class="form-control" required placeholder="Entrez votre nom" />
+      </div>
+
+      <div>
+        <label for="firstName" class="form-label">Prénom</label>
+        <input type="text" id="firstName" name="firstName" class="form-control" required placeholder="Entrez votre prénom" />
+      </div>
+
+      <div>
+        <label for="emailSignIn" class="form-label">Adresse email</label>
+        <input type="email" id="emailSignIn" name="email" class="form-control" required placeholder="name@example.com" />
+      </div>
+
+      <div>
+        <label for="mdp" class="form-label">Mot de passe</label>
+        <input type="password" id="mdp" name="password" class="form-control" required placeholder="Entrez votre mot de passe" aria-describedby="passwordHelpBlock" />
+      </div>
+
+      <div>
+        <label for="mdpConf" class="form-label">Confirmation du mot de passe</label>
+        <input type="password" id="mdp" name="passwordConf" class="form-control" required placeholder="Entrez votre mot de passe" aria-describedby="passwordHelpBlock" />
+      </div>
+
+
+      <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 ">INSCRIPTION</button>
+    </div>
+
+  </form>
+
 </div>
-</div>
 
-</div>
 
 
 

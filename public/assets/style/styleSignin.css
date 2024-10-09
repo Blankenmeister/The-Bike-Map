@@ -1,8 +1,25 @@
 .title {
-  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
   color: #22A737;
 }
 
 button {
   border-color: transparent;
+}
+
+.form-label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.form-control {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+.title-signin {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #22A737;
 }
