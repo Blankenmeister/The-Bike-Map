@@ -26,10 +26,7 @@ if (isset($message)) {
   <a class="btn rounded-pill" href="<?= Domain . HOME_URL ?>dashboard/route/create">Créer un parcours</a>
 </div>
 
-<div class="col-lg-3 col-md-6 mobile-center">
-  <a class="btn rounded-pill" href="<?= Domain . HOME_URL ?>dashboard/route/list">Liste des parcours</a>
-</div>
-<div class="container">
+
 
 
 <h4 class="title-signin">Bonjour <?= $user->getFirstName()?> <?= $user->getLastName() ?></h4>
@@ -76,6 +73,7 @@ if (isset($message)) {
   <div class="d-flex justify-content-center my-5">
     <a href="<?= Domain . HOME_URL ?>dashboard/route/list" class=" btn-bg-green rounded-pill px-3 py-2 " role="button">PARCOURS</a>
   </div>
+  
   <div class="container line my-5"></div>
   <h4 class="title-signin mb-5">Supprimer votre compte</h4>
 

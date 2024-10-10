@@ -23,3 +23,42 @@ button {
   font-weight: 700;
   color: #22A737;
 }
+
+.signin-form {
+  margin: 0 3rem;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+  .signin-form {
+    margin: 0 5rem;
+  }
+  
+}
+
+
+@media only screen and (min-width: 992px) {
+
+  .signin-form {
+    margin: 0 10rem;
+  }
+  
+}
+
+@media only screen and (min-width: 1200px) {
+
+  .signin-form {
+    margin: 0 15rem;
+  }
+  
+}
+
+@media only screen and (min-width: 1440px) {
+
+  .signin-form {
+    margin: 0 20rem;
+  }
+  
+
+}
