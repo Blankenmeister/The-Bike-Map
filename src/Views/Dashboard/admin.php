@@ -6,22 +6,22 @@
     </svg>
   </a>
 
-</div>
-<?php if (isset($success)) { ?>
-  <div class="alert alert-success">Vous êtes connecté avec succès : <?php echo $success; ?></div>
-<?php } ?>
 
-<?php if (isset($success)) { ?>
-  <div class="alert alert-success">Vous êtes connecté avec succès : <?php echo $success; ?></div>
-<?php } ?>
+  <?php if (isset($success)) { ?>
+    <div class="alert alert-success">Vous êtes connecté avec succès : <?php echo $success; ?></div>
+  <?php } ?>
 
-<?php
-if (isset($message)) {
+  <?php if (isset($success)) { ?>
+    <div class="alert alert-success">Vous êtes connecté avec succès : <?php echo $success; ?></div>
+  <?php } ?>
+
+  <?php
+  if (isset($message)) {
     echo "<p>$message</p>";  // Le message de connexion s'affiche ici
-}
-?>
+  }
+  ?>
 
-<h4 class="title-signin text-center">Bonjour <?= $user->getFirstName()?> <?= $user->getLastName() ?></h4>
+  <h4 class="title-signin text-center">Bonjour <?= $user->getFirstName() ?> <?= $user->getLastName() ?></h4>
   <h4 class="title-signin text-center mb-5">Bienvenue sur votre compte.</h4>
 
   <form action="<?= Domain . HOME_URL . 'signin' ?>" method="POST" id="formConnexion">
@@ -49,29 +49,28 @@ if (isset($message)) {
 
       <div>
         <label for="mdpConf" class="form-label">Confirmation du mot de passe</label>
-        <input type="password" id="mdp" name="passwordConf" class="form-control" required placeholder="Entrez votre mot de passe" aria-describedby="passwordHelpBlock" />
+        <input type="password" id="mdpConf" name="passwordConf" class="form-control" required placeholder="Entrez votre mot de passe" aria-describedby="passwordHelpBlock" />
       </div>
 
       <div class="d-flex justify-content-center my-3">
-      <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 ">MODIFIER</button>
+        <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 ">MODIFIER</button>
       </div>
     </div>
 
   </form>
-  <div class="container line my-5"></div>
+  <div class="line my-5"></div>
 
-<h4 class="title-signin text-center mb-4">Gérer les parcours</h4>
+  <h4 class="title-signin text-center mb-4">Gérer les parcours</h4>
 
   <div class="d-flex justify-content-center mb-5">
     <a href="<?= Domain . HOME_URL ?>dashboard/route/list" class=" btn-bg-green rounded-pill px-3 py-2 " role="button">PARCOURS</a>
   </div>
 
-  <div class="container line my-5"></div>
+  <div class="line my-5"></div>
   <h4 class="title-signin text-center mb-4">Supprimer votre compte</h4>
 
   <div class="d-flex justify-content-center mb-5">
     <a href="<?= Domain . HOME_URL ?>dashboard/route/create" class=" btn-bg-green rounded-pill px-3 py-2 " role="button">SUPPRIMER</a>
   </div>
 
-
-  </div>
+</div>
