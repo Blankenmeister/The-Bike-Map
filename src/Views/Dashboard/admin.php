@@ -21,16 +21,8 @@ if (isset($message)) {
 }
 ?>
 
-
-<div class="col-lg-3 col-md-6 mobile-center">
-  <a class="btn rounded-pill" href="<?= Domain . HOME_URL ?>dashboard/route/create">Créer un parcours</a>
-</div>
-
-
-
-
-<h4 class="title-signin">Bonjour <?= $user->getFirstName()?> <?= $user->getLastName() ?></h4>
-  <h4 class="title-signin mb-5">Bienvenue sur votre compte.</h4>
+<h4 class="title-signin text-center">Bonjour <?= $user->getFirstName()?> <?= $user->getLastName() ?></h4>
+  <h4 class="title-signin text-center mb-5">Bienvenue sur votre compte.</h4>
 
   <form action="<?= Domain . HOME_URL . 'signin' ?>" method="POST" id="formConnexion">
 
@@ -68,16 +60,16 @@ if (isset($message)) {
   </form>
   <div class="container line my-5"></div>
 
-<h4 class="title-signin mb-5">Gérer les parcours</h4>
+<h4 class="title-signin text-center mb-4">Gérer les parcours</h4>
 
-  <div class="d-flex justify-content-center my-5">
+  <div class="d-flex justify-content-center mb-5">
     <a href="<?= Domain . HOME_URL ?>dashboard/route/list" class=" btn-bg-green rounded-pill px-3 py-2 " role="button">PARCOURS</a>
   </div>
-  
-  <div class="container line my-5"></div>
-  <h4 class="title-signin mb-5">Supprimer votre compte</h4>
 
-  <div class="d-flex justify-content-center my-5">
+  <div class="container line my-5"></div>
+  <h4 class="title-signin text-center mb-4">Supprimer votre compte</h4>
+
+  <div class="d-flex justify-content-center mb-5">
     <a href="<?= Domain . HOME_URL ?>dashboard/route/create" class=" btn-bg-green rounded-pill px-3 py-2 " role="button">SUPPRIMER</a>
   </div>
 

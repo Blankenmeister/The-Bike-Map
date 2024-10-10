@@ -45,12 +45,12 @@
 
       <div>
         <label for="elevation" class="form-label">Dénivelé +</label>
-        <input type="number" id="elevation" name="elevation" class="form-control add-elevation" required placeholder="Entrez le dénivelé (en m)" value="<?= $data['elevation'] ?? '' ?>">
+        <input type="number" id="elevation" name="elevation" class="form-control" required placeholder="Entrez le dénivelé (en m)" value="<?= $data['elevation'] ?? '' ?>">
       </div>
 
       <div>
         <label for="altitude" class="form-label">Altitude max</label>
-        <input type="number" id="altitude" name="altitude" class="form-control add-altitude" required placeholder="Entrez l'altitude (en m)" value="<?= $data['altitude'] ?? '' ?>">
+        <input type="number" id="altitude" name="altitude" class="form-control" required placeholder="Entrez l'altitude (en m)" value="<?= $data['altitude'] ?? '' ?>">
       </div>
 
       <p class="circuit m-0">Ce parcours est une boucle</p>
@@ -63,7 +63,7 @@
 
       <div>
         <label for="type" class="form-label">Type de pratique</label>
-        <select id="type" name="Id_type" class="form-select add-type" required>
+        <select id="type" name="Id_type" class="form-select" required>
           <option value="1" selected="<?= $data['Id_type'] == 1 ? 'selected' : '' ?>">Route</option>
           <option value="2" selected="<?= $data['Id_type'] == 2 ? 'selected' : '' ?>">Gravel</option>
           <option value="3" selected="<?= $data['Id_type'] == 3 ? 'selected' : '' ?>">VTT</option>
@@ -72,7 +72,7 @@
 
       <div>
         <label for="level" class="form-label">Niveau</label>
-        <select id="level" name="Id_level" class="form-select add-level" required>
+        <select id="level" name="Id_level" class="form-select" required>
           <option value="1" selected="<?= $data['Id_level'] == 1 ? 'selected' : '' ?>>">Familial</option>
           <option value="2" selected="<?= $data['Id_level'] == 2 ? 'selected' : '' ?>">Sportif</option>
           <option value="3" selected="<?= $data['Id_level'] == 3 ? 'selected' : '' ?>">Expert</option>
@@ -97,7 +97,7 @@
       </div>
 
       <div class="d-flex justify-content-center my-3">
-      <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 ">AJOUTER</button>
+        <button id="submissionButtonSignIn" type="submit" class="btn-bg-green rounded-pill px-3 py-2 ">AJOUTER</button>
       </div>
     </div>
 

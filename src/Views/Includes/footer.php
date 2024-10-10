@@ -50,7 +50,7 @@
 
 
 
-<script src="<?= Domain . HOME_URL . 'assets/bootstrap/js/bootstrap.bundle.js' ?>"></script>
+<script src="<?= Domain . HOME_URL . 'assets/bootstrap/js/bootstrap.bundle.js' ?>" defer></script>
 
 
 </body>
