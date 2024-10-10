@@ -16,6 +16,34 @@
 .name-list {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
+  font-size: 1.25rem;
+}
+
+.text-list {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
   
+}
+
+.trash-list {
+  vertical-align: baseline;
+}
+
+.trash-list:hover {
+  fill: #000000;
+}
+
+.btn-update {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+ 
+  
+  color: #22A737 !important;
+  
+}
+
+.btn-update:hover {
+  
+  color: #000000 !important;
 
 }
