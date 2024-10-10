@@ -42,7 +42,7 @@
   <div class="form-check">
     <p>Ce parcours est une boucle</p>
     <input class="form-check-input" type="checkbox" name="circuit" id="circuit" checked="<?= $route->getCircuit() == 1 ? 'checked' : '' ?>>
-    <label class="form-check-label" for="circuit">
+    <label for="" class="form-check-label" for="circuit">
       oui
     </label>
   </div>

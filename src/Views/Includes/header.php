@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/style/styleContact.css' ?>">
   <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/style/styleAdmin.css' ?>">
   <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/style/styleRouteList.css' ?>">
+  <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/style/styleCreateroute.css' ?>">
 
   <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/bootstrap/css/bootstrap.css' ?>">
   <link rel="stylesheet" href="<?= Domain . HOME_URL . 'assets/bootstrap/css/bootstrap-grid.css' ?>">

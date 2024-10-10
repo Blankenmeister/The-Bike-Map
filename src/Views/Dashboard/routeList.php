@@ -62,35 +62,19 @@ include_once __DIR__ . '/../Includes/header.php'; ?>
 
     </div>
 
-
-
-
-    
-      <p class="text-list m-0">Distance : <?= $route->getDistance(); ?> km</p>
-      <p class="text-list m-0">Date de création du parcours :
-        <?php $creationDateString = $route->getCreationDate();
-        try {
-          $creationDate = new DateTime($creationDateString);
-          echo $creationDate->format('d/m/Y');
-        } catch (Exception $e) {
-          echo "Date non valide";
-        } ?></p>
-    
-
-
-
-
-
+    <p class="text-list m-0">Distance : <?= $route->getDistance(); ?> km</p>
+    <p class="text-list m-0">Date de création du parcours :
+      <?php $creationDateString = $route->getCreationDate();
+      try {
+        $creationDate = new DateTime($creationDateString);
+        echo $creationDate->format('d/m/Y');
+      } catch (Exception $e) {
+        echo "Date non valide";
+      } ?></p>
 
     <div class="line my-3"></div>
 
-
-
   <?php } ?>
-
-
-
-
 
 </div>
 
