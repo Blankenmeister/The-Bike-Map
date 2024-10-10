@@ -6,6 +6,7 @@ use Exception;
 use src\Models\User;
 use PDO;
 use PDOException;
+use src\Models\Route;
 use src\Services\Database;
 
 class UserRepository
@@ -71,23 +72,5 @@ class UserRepository
     }
   }
 
-  //   public function recupererUtilisateurParEmail($mailConnexion)
-  // {
-  //   $sql = "SELECT gest_utilisateur.id_utilisateur,
-  //   gest_utilisateur.nom,
-  //   gest_utilisateur.prenom,
-  //   gest_utilisateur.mail, 
-  //   gest_utilisateur.mot_de_passe, 
-  //   gest_utilisateur.compte_active, 
-  //   gest_role.nom AS NameRole,
-  //   gest_role.id_role AS IdRole FROM gest_utilisateur
-  //   LEFT JOIN gest_role ON gest_utilisateur.id_role = gest_role.id_role 
-  //   WHERE gest_utilisateur.mail = :mail;";
 
-  //   $statement = $this->DB->prepare($sql);
-
-  //   $statement->execute([':mail' => $mailConnexion]);
-  //   $statement->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
-  //   return $statement->fetch();
-  // }
 }

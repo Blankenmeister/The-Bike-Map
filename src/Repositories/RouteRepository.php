@@ -5,6 +5,7 @@ namespace src\Repositories;
 use Exception;
 use src\Models\Route;
 use PDO;
+use PDOException;
 use src\Services\Database;
 
 class RouteRepository
@@ -189,7 +190,81 @@ public function updateRoute(Route $route)
         
   }
         
+  public function getRoutesByUser($idUserSession) {
+    try {
+      $sql = "SELECT bike_route.id_route, 
+            bike_route.name, 
+            bike_route.description, 
+            bike_route.duration, 
+            bike_route.distance, 
+            bike_route.date_creation, 
+            bike_route.date_last_modification, 
+            bike_user.id_user, 
+            bike_user.first_name, 
+            bike_user.last_name 
+            FROM bike_route 
+            INNER JOIN bike_user ON bike_route.id_user = bike_user.id_user 
+            WHERE bike_route.id_user = :id_user;";
+ 
+            $statement = $this->DB->prepare($sql);
+      $statement->execute([':id_user' => $idUserSession]);
+      $statement->setFetchMode(PDO::FETCH_CLASS, Route::class);
+      return $statement->fetchAll();
+ 
+      } catch (PDOException $e) {
+        error_log('Database Error: '. $e->getMessage());
+        throw new Exception('An error occurred during query: '. $e->getMessage());
+      }
+    
+  }
+
+  public function deleteRoute($idRoute) {
+    try {
+      $sql = "DELETE FROM bike_route WHERE id_route = :id_route;";
+      $statement = $this->DB->prepare($sql);
+      $statement->execute([':id_route' => $idRoute]);
+      $affectedRows = $statement->rowCount();
+      if ($affectedRows > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (PDOException $e) {
+      error_log('Database Error: '. $e->getMessage());
+      throw new Exception('An error occurred during query: '. $e->getMessage());
+    }
+  }
+
+  public function getRoutesByUserAndFavourite($idUserSession) {
+    try {
+      $sql = "SELECT bike_route.id_route, 
+                  bike_route.name, 
+                  bike_route.description, 
+                  bike_route.duration, 
+                  bike_route.distance, 
+                  bike_route.date_creation, 
+                  bike_route.date_last_modification, 
+                  bike_user.id_user, 
+                  bike_user.first_name, 
+                  bike_user.last_name 
+                  FROM bike_route 
+                  INNER JOIN bike_user ON bike_route.id_user = bike_user.id_user 
+                  INNER JOIN bike_user_favourite ON bike_user.id_user = bike_user_favourite.id_user 
+                  WHERE bike_user_favourite.id_route = :id_route AND 
+                  bike_user_favourite.id_user = :id_user;";
+                  
+      $statement = $this->DB->prepare($sql);
+      $statement->execute([':id_user' => $idUserSession]);
+      $statement->setFetchMode(PDO::FETCH_CLASS, Route::class);
+      return $statement->fetchAll();
+      
+    } catch (PDOException $e) {
+      error_log('Database Error: '. $e->getMessage());
+      throw new Exception('An error occurred during query: '. $e->getMessage());
+  
+  }
   
 
 }
 
+}

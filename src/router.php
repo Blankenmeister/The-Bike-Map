@@ -26,7 +26,7 @@ switch ($route[0]) {
     $nameRoute = Routing::slugToName($route[1]);
 
     $homeController->displayMapDetail($nameRoute);
-    
+
     break;
 
   case 'contact':
@@ -104,8 +104,30 @@ switch ($route[0]) {
         break;
 
       case 'user':
-        //
+        switch ($route[2]) {
+          case 'download':
+            if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+              $userController->displayDownloaded();
+            } else {
+              $homeController->signIn();
+            }
+            break;
+
+          case 'favourite':
+            if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {
+              $userController->displayFavourite();
+            } else {
+              $homeController->signIn();
+            }
+            break;
+
+          default:
+            $homeController->displayPage404();
+            break;
+        }
         break;
+
+
 
       default:
         if (isset($_SESSION['connecte']) && $_SESSION['connecte']) {

@@ -3,6 +3,7 @@
 namespace src\Controllers;
 
 use Exception;
+use src\Repositories\RouteRepository;
 use src\Repositories\UserRepository;
 
 class userController
@@ -49,4 +50,29 @@ class userController
 
     include_once __DIR__ . '/../Views/Dashboard/dashboard.php';
   }
+
+  public function displayDownloaded() {
+    $user = $_SESSION['user'];
+
+    // $idUserSession = $user->getIdUser();
+
+    // $routeRepository = new RouteRepository();
+    // $routes = $routeRepository->getRoutesByUser($idUserSession);
+
+    include_once __DIR__ . '/../Views/User/download.php';
+  }
+
+
+  public function displayFavourite() {
+    $user = $_SESSION['user'];
+    // $idUserSession = $user->getIdUser();
+    // $routeRepository = new RouteRepository();
+    // $routes = $routeRepository->getRoutesByUserAndFavourite($idUserSession);
+
+    include_once __DIR__. '/../Views/User/favourite.php';
+
+  }
+
+
+
 }
